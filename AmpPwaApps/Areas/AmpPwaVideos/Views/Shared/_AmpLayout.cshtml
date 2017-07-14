@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html ⚡ lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="amp-experiments-opt-in" content="">
+    <title>@ViewData["Title"]</title>
+    <link rel="canonical" href="@ViewData["Canonical"]">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <amp-custom-style page-type="@ViewData["PageType"]" default-page-type="default" />
+    <amp-boilerplate-style/>
+</head>
+<body class="amp-conf">
+    @RenderBody()
+    
+    <amp-analytics type="googleanalytics" id="analytics-ga">
+        <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-67833617-1"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          }
+        }
+        </script>
+    </amp-analytics>
+</body>
+</html>
+

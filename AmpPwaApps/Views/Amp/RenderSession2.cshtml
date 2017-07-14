@@ -1,0 +1,9 @@
+﻿@using AmpPwaApps.Business.AmpPwaVideos
+@model AmpPwaApps.Business.AmpPwaVideos.Conference
+@{
+    Session session = ViewData["session"] as Session;
+    Speaker speaker = session.Speaker != null? Model.Speakers[session.Speaker] : null;
+    string[] speakers = session.Speakers != null? session.Speakers : null;
+    Speaker moderator = session.Moderator != null? Model.Speakers[session.Moderator] : null;
+
+}

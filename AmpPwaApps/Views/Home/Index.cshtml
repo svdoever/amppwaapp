@@ -1,0 +1,44 @@
+﻿@using AmpPwaApps.Areas.AmpPwaVideos.Models
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+@model AmpPwaApps.Areas.AmpPwaVideos.Models.Conference
+
+@{
+    ViewData["Canonical"] = "https://amppwaapps.azurewebsites.net";
+    ViewData["PageType"] = "HomePage";
+    ViewData["Title"] = "AMP and PWA samples homepage";
+}
+
+@section scripts
+{
+    <amp-component-script component="amp-analytics" />
+}
+
+<h1>&nbsp;AMP and PWA examples </h1>
+
+<material-card-grid>
+    <a class="card" href="/AmpPwaVideos">
+        <div class="card-inner">
+            <div class="card-meta">
+                <span class="card-type text-label">AMP Conference Videos</span>
+                <span class="card-date light">May 12, 2017</span>
+            </div>
+            <div class="card-logo">
+                <amp-img alt="AMP Logo"
+                         height="126"
+                         layout="fixed"
+                         noloading
+                         src="/static/img/logo-og-image.jpg"
+                         width="240"></amp-img>
+            </div>
+
+            <div class="card-title">
+                <h4>AMP Conf 2017</h4>
+                <p>Connect with the AMP developers and ecosystem and learn how to create beautiful, interactive, responsive and successful AMP pages. Join us if you're a web developer or designer interested in AMP.</p>
+            </div>
+
+            <div class="card-link">
+                <p class="text-label">Watch the videos!</p>
+            </div>
+        </div>
+    </a>
+</material-card-grid>

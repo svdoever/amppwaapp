@@ -1,0 +1,66 @@
+﻿@using AmpPwaApps.Areas.AmpPwaVideos.Models
+@model AmpPwaApps.Areas.AmpPwaVideos.Models.Conference
+@{
+    Session session = ViewData["session"] as Session;
+    Speaker speaker = session.Speaker != null? Model.Speakers[session.Speaker] : null;
+    string[] speakers = session.Speakers != null? session.Speakers : null;
+    Speaker moderator = session.Moderator != null? Model.Speakers[session.Moderator] : null;
+
+}
+@if (speaker != null)
+{
+    <span class="image">
+    @if (speaker.Pic != null)
+    {
+        <amp-img src="@speaker.Pic" width="100" height="100"></amp-img>
+    }
+    </span>
+}
+@if (speakers != null)
+{
+    @foreach (var individualSpeakerId in speakers)
+    {
+        Speaker individualSpeaker = Model.Speakers[individualSpeakerId];
+        if (individualSpeaker != null)
+        {
+            <span class="image multiple">
+                @if (individualSpeaker.Pic != null)
+                {
+                    <amp-img src="@individualSpeaker.Pic" width="60" height="60"></amp-img>
+                }
+            </span>
+        }
+
+    }
+}
+
+<time>@session.Time</time>
+<div>
+    <h5 class="@session.Type">@session.Title</h5>
+    @if (speaker != null)
+    {
+        <small><a href="#@session.Speaker">@speaker.Name, @speaker.Company</a></small>
+    }
+    @if (speakers != null)
+    {
+        if (moderator != null)
+        { 
+            <small><a href="#@session.Moderator">@moderator.Name, @moderator.Company (Moderator)</a></small>
+        }
+        foreach (var individualSpeaker in speakers)
+        {
+            if (Model.Speakers[individualSpeaker] != null)
+            { 
+                <small><a href="#@individualSpeaker">@Model.Speakers[individualSpeaker].Name, @Model.Speakers[individualSpeaker].Company</a></small>
+            }
+        }
+    }
+    @if (session.Youtube != null)
+    {
+        <amp-youtube data-videoid="@session.Youtube" layout="responsive" width="480" height="270"></amp-youtube>
+    }
+    @if (session.Description != null)
+    { 
+        <p>@session.Description</p>
+    }
+</div>

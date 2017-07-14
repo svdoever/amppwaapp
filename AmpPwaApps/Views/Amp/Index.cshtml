@@ -1,0 +1,636 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewFeatures
+@model AmpPwaApps.Business.AmpPwaVideos.Conference
+
+@{
+    Layout = "~/Views/AMP/_AmpLayout.cshtml";
+    ViewData["PageType"] = "AmpPwaVideos/amp-conf-2017";
+    ViewData["Title"] = "AMP Conf 2017";
+}
+
+@section scripts
+{
+    <amp-component-script component="amp-analytics" />
+    <amp-component-script component="amp-accordion" />
+    <amp-component-script component="amp-sidebar" />
+    <amp-component-script component="amp-form" />
+    <amp-component-script component="amp-youtube" />
+    <amp-component-script component="amp-iframe"/>
+}
+
+<amp-analytics type="googleanalytics" id="analytics-ga">
+    <script type="application/json">
+    {
+      "vars": {
+        "account": "UA-67833617-1"
+      },
+      "triggers": {
+        "trackPageview": {
+          "on": "visible",
+          "request": "pageview"
+        }
+      }
+    }
+    </script>
+</amp-analytics>
+
+<amp-sidebar id='sidebar' side='right' layout='nodisplay'>
+    <form class="menu-layer primary" action="/" target="_top">
+        <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+        <div class="items">
+            <label class="menu-item item-layer-1 has-sub-level"><input type="checkbox">
+                About
+                <div class="submenu menu-layer secondary">
+                    <div class="return-button">Back</div>
+                    <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                    <div class="items">
+                        <a class="menu-item item-layer-2" href="/learn/overview/">What is AMP?</a>
+                        <a class="menu-item item-layer-2" href="/learn/about-how/">How AMP Works</a>
+                        <a class="menu-item item-layer-2" href="/learn/amp-design-principles/">Design Principles</a>
+                        <label class="menu-item item-layer-2 has-sub-level"><input type="checkbox">Who is AMP for?
+                            <div class="submenu menu-layer tertiary">
+                                <div class="return-button">Back</div>
+                                <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                                <div class="items">
+                                    <a class="menu-item item-layer-3" href="/learn/who-uses-amp/">Who is AMP for?</a>
+                                    <a class="menu-item item-layer-3" href="/learn/who-uses-amp/publishers/">AMP for Publishers</a>
+                                    <a class="menu-item item-layer-3" href="/learn/who-uses-amp/ad-tech-platforms/">AMP for Ad Tech Platforms</a>
+                                    <a class="menu-item item-layer-3" href="/learn/who-uses-amp/advertisers/">AMP for Advertisers</a>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="menu-item item-layer-2 has-sub-level"><input type="checkbox">Case Studies
+                            <div class="submenu menu-layer tertiary">
+                                <div class="return-button">Back</div>
+                                <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                                <div class="items">
+                                    <a class="menu-item item-layer-3" href="/case-studies/">Case Studies</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/washingtonpost/">Washington Post</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/gizmodo/">Gizmodo</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/wired/">Wired</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/slate/">Slate</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/plista/">plista</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/relay_media/">Relay Media</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/teads/">Teads</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/hearst/">Hearst</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/milestone/">Milestone</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/terra/">Terra</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/wompmobile/">WompMobile</a>
+                                    <a class="menu-item item-layer-3" href="/case-studies/nobroker/">NoBroker</a>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </label>
+            <label class="menu-item item-layer-1 has-sub-level"><input type="checkbox">
+                Docs
+                <div class="submenu menu-layer secondary">
+                    <div class="return-button">Back</div>
+                    <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                    <div class="items">
+                        <a class="menu-item item-layer-2" href="/docs/tutorials/create.html">Getting started</a>
+                        <label class="menu-item item-layer-2 has-sub-level"><input type="checkbox">Tutorials
+                            <div class="submenu menu-layer tertiary">
+                                <div class="return-button">Back</div>
+                                <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                                <div class="items">
+                                    <a class="menu-item item-layer-3" href="/docs/tutorials/create.html">Tutorials</a>
+                                    <a class="menu-item item-layer-3" href="/docs/tutorials/create.html">Create Your First AMP Page</a>
+                                    <a class="menu-item item-layer-3" href="/docs/tutorials/login_requiring.html">Create a login-requiring AMP page</a>
+                                    <a class="menu-item item-layer-3" href="/docs/tutorials/live_blog.html">Create a Live Blog</a>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="menu-item item-layer-2 has-sub-level"><input type="checkbox">Guides
+                            <div class="submenu menu-layer tertiary">
+                                <div class="return-button">Back</div>
+                                <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                                <div class="items">
+                                    <a class="menu-item item-layer-3" href="/docs/guides/responsive_amp.html">Guides</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/validate.html">Validate AMP Pages</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/responsive_amp.html">Style & Layout</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/analytics_amp.html">Configure Analytics</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/discovery.html">Make Your Page Discoverable</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/amp_replacements.html">Include Images & Video</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/iframes.html">Include Iframes</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/third_party_components.html">Include Third-Party Content</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/ads_on_amp.html">Serving Ads on AMP</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/pwa-amp.html">Combine AMP with Progressive Web Apps</a>
+                                    <a class="menu-item item-layer-3" href="/docs/guides/engagement.html">Improve User Engagement</a>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="menu-item item-layer-2 has-sub-level"><input type="checkbox">Reference
+                            <div class="submenu menu-layer tertiary">
+                                <div class="return-button">Back</div>
+                                <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                                <div class="items">
+                                    <a class="menu-item item-layer-3" href="/docs/reference/components.html">Reference</a>
+                                    <a class="menu-item item-layer-3" href="/docs/reference/components.html">Components / Tags</a>
+                                    <a class="menu-item item-layer-3" href="/docs/reference/spec.html">AMP HTML Specification</a>
+                                    <a class="menu-item item-layer-3" href="/docs/reference/common_attributes.html">Common Attributes</a>
+                                    <a class="menu-item item-layer-3" href="/docs/reference/experimental.html">Experimental features</a>
+                                    <a class="menu-item item-layer-3" href="/docs/reference/validation_errors.html">AMP Validation Errors</a>
+                                </div>
+                            </div>
+                        </label>
+                        <a class="menu-item item-layer-2 external" href="https://ampbyexample.com/">Examples</a>
+                        <a class="menu-item item-layer-2 external" href="https://youtube.com/TheAMPProject">Videos</a>
+                        <label class="menu-item item-layer-2 has-sub-level"><input type="checkbox">Contribute
+                            <div class="submenu menu-layer tertiary">
+                                <div class="return-button">Back</div>
+                                <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                                <div class="items">
+                                    <a class="menu-item item-layer-3" href="/contribute/">Contribute</a>
+                                    <a class="menu-item item-layer-3" href="/contribute/">How to Contribute</a>
+                                    <a class="menu-item item-layer-3" href="/docs/contribute/integrate-your-tech/">Integrate your technology with AMP</a>
+                                    <a class="menu-item item-layer-3 external" href="https://github.com/ampproject/amphtml/issues/new">File a bug</a>
+                                    <a class="menu-item item-layer-3 external" href="https://github.com/ampproject/amphtml">GitHub</a>
+                                    <a class="menu-item item-layer-3" href="/docs/contribute/governance/">Open Source Governance</a>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </label>
+            <label class="menu-item item-layer-1 has-sub-level"><input type="checkbox">
+                The Latest
+                <div class="submenu menu-layer secondary">
+                    <div class="return-button">Back</div>
+                    <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                    <div class="items">
+                        <a class="menu-item item-layer-2" href="/latest/">What's New</a>
+                        <a class="menu-item item-layer-2" href="/latest/blog">News</a>
+                        <a class="menu-item item-layer-2" href="/latest/event/">Events</a>
+                        <a class="menu-item item-layer-2" href="/roadmap/">Roadmap</a>
+                    </div>
+                </div>
+            </label>
+            <label class="menu-item item-layer-1 has-sub-level"><input type="checkbox">
+                Support
+                <div class="submenu menu-layer secondary">
+                    <div class="return-button">Back</div>
+                    <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                    <div class="items">
+                        <label class="menu-item item-layer-2 has-sub-level"><input type="checkbox">FAQs
+                            <div class="submenu menu-layer tertiary">
+                                <div class="return-button">Back</div>
+                                <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                                <div class="items">
+                                    <a class="menu-item item-layer-3" href="/support/faqs/">FAQs</a>
+                                    <a class="menu-item item-layer-3" href="/support/faqs/overview.html">AMP Overview</a>
+                                    <a class="menu-item item-layer-3" href="/support/faqs/platform-involvement.html">Platform and Technology Company Involvement</a>
+                                    <a class="menu-item item-layer-3" href="/support/faqs/publisher-monetization.html">Publisher Monetization</a>
+                                    <a class="menu-item item-layer-3" href="/support/faqs/supported-platforms.html">Supported Platforms, Vendors and Partners</a>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="menu-item item-layer-2 has-sub-level"><input type="checkbox">Developer Support
+                            <div class="submenu menu-layer tertiary">
+                                <div class="return-button">Back</div>
+                                <button type="reset" class="close-button" id="menu-button" on='tap:sidebar.toggle'></button>
+                                <div class="items">
+                                    <a class="menu-item item-layer-3" href="/support/developer/">Developer Support</a>
+                                    <a class="menu-item item-layer-3 external" href="https://stackoverflow.com/questions/tagged/amp-html">Stack Overflow Community</a>
+                                    <a class="menu-item item-layer-3 external" href="https://groups.google.com/forum/#!forum/amphtml-discuss">Support Forum</a>
+                                    <a class="menu-item item-layer-3 external" href="https://docs.google.com/a/google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877">Slack Channel</a>
+                                    <a class="menu-item item-layer-3 external" href="https://github.com/ampproject/amphtml/issues/new">Report a platform bug on GitHub</a>
+                                    <a class="menu-item item-layer-3 external" href="https://github.com/ampproject/docs/issues/new">Report a documentation bug on GitHub</a>
+                                </div>
+                            </div>
+                        </label>
+                        <a class="menu-item item-layer-2" href="/static/img/brand-guidelines.pdf">Brand Guidelines</a>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="language desktop">
+            <amp-accordion>
+                <section>
+                    <h6 class="current">
+                        <a class="flag-en"><span>English</span></a>
+                    </h6>
+                    <div class="others">
+                        <div class="others-inner">
+                        </div>
+                    </div>
+                </section>
+            </amp-accordion>
+        </div>  </form>
+</amp-sidebar>
+
+<header class="header fixed">
+
+<div class="container">
+<div class="nav-container">
+<div class="left-nav alt">
+<a href="/" class="tab header-title"><span></span></a>
+
+<div class="tabs">
+<div class="tab">
+    <a href="/learn/overview/">About</a>
+    <div class="list-container">
+        <div class="list-shadow"></div>
+        <ul>
+            <li >
+                <a href="/learn/overview/" >What is AMP?</a>
+            </li>
+            <li >
+                <a href="/learn/about-how/" >How AMP Works</a>
+            </li>
+            <li >
+                <a href="/learn/amp-design-principles/" >Design Principles</a>
+            </li>
+            <li  class="has-sublist" >
+                <a href="/learn/who-uses-amp/" >Who is AMP for?</a>
+                <ul class="sublist">
+                    <li>
+                        <a href="/learn/who-uses-amp/publishers/" >AMP for Publishers</a>
+                    </li>
+                    <li>
+                        <a href="/learn/who-uses-amp/ad-tech-platforms/" >AMP for Ad Tech Platforms</a>
+                    </li>
+                    <li>
+                        <a href="/learn/who-uses-amp/advertisers/" >AMP for Advertisers</a>
+                    </li>
+                </ul>
+            </li>
+            <li  class="has-sublist" >
+                <a href="/case-studies/" >Case Studies</a>
+                <ul class="sublist">
+                    <li>
+                        <a href="/case-studies/washingtonpost/" >Washington Post</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/gizmodo/" >Gizmodo</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/wired/" >Wired</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/slate/" >Slate</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/plista/" >plista</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/relay_media/" >Relay Media</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/teads/" >Teads</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/hearst/" >Hearst</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/milestone/" >Milestone</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/terra/" >Terra</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/wompmobile/" >WompMobile</a>
+                    </li>
+                    <li>
+                        <a href="/case-studies/nobroker/" >NoBroker</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="tab">
+    <a href="/docs/">Docs</a>
+    <div class="list-container">
+        <div class="list-shadow"></div>
+        <ul>
+            <li >
+                <a href="/docs/tutorials/create.html" >Getting started</a>
+            </li>
+            <li  class="has-sublist" >
+                <a href="/docs/tutorials/create.html" >Tutorials</a>
+                <ul class="sublist">
+                    <li>
+                        <a href="/docs/tutorials/create.html" >Create Your First AMP Page</a>
+                    </li>
+                    <li>
+                        <a href="/docs/tutorials/login_requiring.html" >Create a login-requiring AMP page</a>
+                    </li>
+                    <li>
+                        <a href="/docs/tutorials/live_blog.html" >Create a Live Blog</a>
+                    </li>
+                </ul>
+            </li>
+            <li  class="has-sublist" >
+                <a href="/docs/guides/responsive_amp.html" >Guides</a>
+                <ul class="sublist">
+                    <li>
+                        <a href="/docs/guides/validate.html" >Validate AMP Pages</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/responsive_amp.html" >Style & Layout</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/analytics_amp.html" >Configure Analytics</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/discovery.html" >Make Your Page Discoverable</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/amp_replacements.html" >Include Images & Video</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/iframes.html" >Include Iframes</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/third_party_components.html" >Include Third-Party Content</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/ads_on_amp.html" >Serving Ads on AMP</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/pwa-amp.html" >Combine AMP with Progressive Web Apps</a>
+                    </li>
+                    <li>
+                        <a href="/docs/guides/engagement.html" >Improve User Engagement</a>
+                    </li>
+                </ul>
+            </li>
+            <li  class="has-sublist" >
+                <a href="/docs/reference/components.html" >Reference</a>
+                <ul class="sublist">
+                    <li>
+                        <a href="/docs/reference/components.html" >Components / Tags</a>
+                    </li>
+                    <li>
+                        <a href="/docs/reference/spec.html" >AMP HTML Specification</a>
+                    </li>
+                    <li>
+                        <a href="/docs/reference/common_attributes.html" >Common Attributes</a>
+                    </li>
+                    <li>
+                        <a href="/docs/reference/experimental.html" >Experimental features</a>
+                    </li>
+                    <li>
+                        <a href="/docs/reference/validation_errors.html" >AMP Validation Errors</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="external" >
+                <a href="https://ampbyexample.com/"  target="_blank" >Examples</a>
+            </li>
+            <li class="external" >
+                <a href="https://youtube.com/TheAMPProject"  target="_blank" >Videos</a>
+            </li>
+            <li  class="has-sublist" >
+                <a href="/contribute/" >Contribute</a>
+                <ul class="sublist">
+                    <li>
+                        <a href="/contribute/" >How to Contribute</a>
+                    </li>
+                    <li>
+                        <a href="/docs/contribute/integrate-your-tech/" >Integrate your technology with AMP</a>
+                    </li>
+                    <li class="external">
+                        <a href="https://github.com/ampproject/amphtml/issues/new"  target="_blank" >File a bug</a>
+                    </li>
+                    <li class="external">
+                        <a href="https://github.com/ampproject/amphtml"  target="_blank" >GitHub</a>
+                    </li>
+                    <li>
+                        <a href="/docs/contribute/governance/" >Open Source Governance</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="tab">
+    <a href="/latest/">The Latest</a>
+    <div class="list-container">
+        <div class="list-shadow"></div>
+        <ul>
+            <li >
+                <a href="/latest/" >What's New</a>
+            </li>
+            <li >
+                <a href="/latest/blog" >News</a>
+            </li>
+            <li >
+                <a href="/latest/event/" >Events</a>
+            </li>
+            <li >
+                <a href="/roadmap/" >Roadmap</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="tab">
+    <a href="/support/">Support</a>
+    <div class="list-container">
+        <div class="list-shadow"></div>
+        <ul>
+            <li  class="has-sublist" >
+                <a href="/support/faqs/" >FAQs</a>
+                <ul class="sublist">
+                    <li>
+                        <a href="/support/faqs/overview.html" >AMP Overview</a>
+                    </li>
+                    <li>
+                        <a href="/support/faqs/platform-involvement.html" >Platform and Technology Company Involvement</a>
+                    </li>
+                    <li>
+                        <a href="/support/faqs/publisher-monetization.html" >Publisher Monetization</a>
+                    </li>
+                    <li>
+                        <a href="/support/faqs/supported-platforms.html" >Supported Platforms, Vendors and Partners</a>
+                    </li>
+                </ul>
+            </li>
+            <li  class="has-sublist" >
+                <a href="/support/developer/" >Developer Support</a>
+                <ul class="sublist">
+                    <li class="external">
+                        <a href="https://stackoverflow.com/questions/tagged/amp-html"  target="_blank" >Stack Overflow Community</a>
+                    </li>
+                    <li class="external">
+                        <a href="https://groups.google.com/forum/#!forum/amphtml-discuss"  target="_blank" >Support Forum</a>
+                    </li>
+                    <li class="external">
+                        <a href="https://docs.google.com/a/google.com/forms/d/e/1FAIpQLSd83J2IZA6cdR6jPwABGsJE8YL4pkypAbKMGgUZZriU7Qu6Tg/viewform?fbzx=4406980310789882877"  target="_blank" >Slack Channel</a>
+                    </li>
+                    <li class="external">
+                        <a href="https://github.com/ampproject/amphtml/issues/new"  target="_blank" >Report a platform bug on GitHub</a>
+                    </li>
+                    <li class="external">
+                        <a href="https://github.com/ampproject/docs/issues/new"  target="_blank" >Report a documentation bug on GitHub</a>
+                    </li>
+                </ul>
+            </li>
+            <li >
+                <a href="/static/img/brand-guidelines.pdf" >Brand Guidelines</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+<div class="right alt">
+    <form action="//www.google.com/search" method="get" class="searchbar" target="_top">
+        <input class="query" name="q" type="text">
+        <input name="as_sitesearch" type="hidden" value="https://amppwaapps.azurewebsites.net/">
+        <button name="search" type="submit"></button>
+    </form><div class="language desktop">
+        <amp-accordion>
+            <section>
+                <h6 class="current">
+                    <a class="flag-en"><span>English</span></a>
+                </h6>
+                <div class="others">
+                    <div class="others-inner">
+                    </div>
+                </div>
+            </section>
+        </amp-accordion>
+    </div>        <button class="tab hamburger" id="menu-button" on='tap:sidebar.toggle'></button>
+</div>
+</div>
+</div>
+</header>
+
+
+<div class="wrap">
+    <div class="content">
+        <section class="teaser amp-conf-section">
+            <h2>AMP Conf 2017</h2>
+        <p>
+            <span><strong>March 7/8</strong> in NYC.</span>
+            <span><strong>19</strong> Talks.</span>
+        </p>
+        </section>
+
+        <section class="description amp-conf-section">
+            <p>
+                <span>Connect with the AMP developers and ecosystem and learn how to create beautiful, interactive, responsive and successful AMP pages. Join us if you're a web developer or designer interested in AMP.</span>
+            </p>
+
+            <ul>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#speakers">Speakers</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+
+        </section>
+
+        <section class="schedule amp-conf-section">
+
+            <div class="wrapper">
+                <h3 id="schedule">Schedule</h3>
+
+                <p>All talks and sessions are designed to help you create amazing, successful AMP content (and to help others do the same!), and over 50% of are given by partners in the AMP ecosystem.</p>
+
+                <div class="tabs">
+                </div>
+
+                <div class="days">
+                    <div class="day">
+                        <h4>March 7th, 2017</h4>
+                        <ul class="schedule">
+                            @foreach(var session in Model.Agenda["day_1"])
+                            { 
+                                <li class="@session.Type">
+                                    @Html.Partial("RenderSession", Model, new ViewDataDictionary(this.ViewData) {{"session", session}})
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="day">
+                        <h4>March 8th, 2017</h4>
+                        <ul class="schedule">
+                            @foreach(var session in Model.Agenda["day_2"])
+                            { 
+                                <li class="@session.Type">
+                                    @Html.Partial("RenderSession", Model, new ViewDataDictionary(this.ViewData) { { "session", session } })
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="speakers amp-conf-section">
+
+            <div class="wrapper">
+                <h3 id="speakers">Speakers</h3>
+
+                <ul class="speakers">
+                    @foreach (var speaker in Model.Speakers)
+                    {
+                        var speakerInfo = speaker.Value;
+                        if (speakerInfo.Bio != null)
+                        {
+                            <li>
+                                <span class="image" data-name="@speakerInfo.Name">
+                                    @if (speakerInfo.Pic != null)
+                                    {
+                                        <amp-img src="@speakerInfo.Pic" width="400" height="400" layout="responsive"></amp-img>
+                                    }
+                                </span>
+                                <div>
+                                    <h4 id="@speaker.Key">@speakerInfo.Name, @speakerInfo.Company</h4>
+                                    <p>@speakerInfo.Bio</p>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </section>
+
+        <section class="location amp-conf-section">
+            <div class="wrapper">
+                <amp-iframe width=300 height=300
+                            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                            layout="responsive"
+                            frameborder="0"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3050.0600022262697!2d-74.0108920361199!3d40.72357632397405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259f48e2e992f%3A0x7b5d67ea6c58814c!2sTribeca+360%C2%B0!5e0!3m2!1sen!2sus!4v1484082758953">
+                    <p placeholder>Loading..</p>
+                </amp-iframe>
+                <div>
+                    <h3 id="location">Location</h3>
+                    <p>Tribeca 360 (<a href="http://threesixtynyc.com/">Website</a>, <a href="https://goo.gl/maps/gmo8t5yxDot">Google Maps</a>).</p>
+                    <h3>Address</h3>
+                    <p>
+                        <span>10 Desbrosses St</span>
+                        <span>New York, NY 10013</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq amp-conf-section">
+            <div class="wrapper">
+                <h3 id="faq">Frequently Asked Questions</h3>
+                <dl>
+
+                    <dt>Is this page the official AMP Conference page?</dt>
+                    <dd>No - it is a shameless rippoff made by Serge van de Oever to test out the creation of AMP pages with real content. The real page can be found <a href="https://www.ampproject.org/amp-conf-2017/" target="_blank">here</a>.</dd>
+
+                    <dt>Did you make the great design on this page?</dt>
+                    <dd>No! All kudus go to the team of Google that built the website <a href="https://www.ampproject.org" target="_blank">https://www.ampproject.org</a>.</dd>
+
+                </dl>
+            </div>
+        </section>
+
+        <section class="footer amp-conf-section">
+            <ul>
+                <li><a href="mailto:serge@macaw.nl">Contact Serge van den Oever</a></li>
+            </ul>
+        </section>
+    </div>
+</div>

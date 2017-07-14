@@ -1,0 +1,169 @@
+﻿  davidbesbris:
+    name: David Besbris
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/bez.jpg
+    bio: Bez joined Google in 2008 and leads the Google News, Google Play Newsstand, AMP and Google Search fresh content teams. Before that he's led several other products, including Google+, Google Photos, Gmail and Google Calendar.
+  nataliabaltazar:
+    name: Natalia Baltazar
+    company: The Guardian
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/natalia.jpg
+    bio: Natalia Baltazar is a full stack software engineer at the Guardian. She works mainly on the theguardian.com, coding in Javascript and Scala. At the Guardian she is the lead developer creating Google AMP versions of article pages and helping spearhead diversity initiatives. Outside of work she organises one-day workshops teaching Node.js with nodegirls.io, is an organiser for Ladies of Code, and volunteers as a mentor for a variety of free coding meetups. In her spare time she focuses on learning new programming languages, furniture refurbishment, and fashion design.
+  lewei:
+    name: Le Wei
+    company: UpperQuad
+    twitter: lewei
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/le.jpg
+    bio: Le is a Senior Developer at Upperquad, a design studio in San Francisco, where she works on a variety of projects for clients such as Google, Github, and Facebook. Most recently she has been working with the AMP team on a redesign of ampproject.org. Prior to UQ, Le was a software engineer at Google.
+  willchou:
+    name: William Chou
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/will.jpg
+    bio: William Chou is a Software Engineer who's working on new dynamic content in AMP. William worked in the games industry prior to joining Google.
+  alexrussell:
+    name: Alex Russell
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/alex.jpg
+    bio: Alex Russell is a Software Engineer on the Chrome team at Google where he designs new features for the web platform and leads Chrome's Standards work. He's a member of TC39, the committee standardizing ECMAScript/JavaScript, and is an elected member of the W3C’s Technical Architecture Group where he works with a group of like-minded reformers to improve the state of layering and API design for the web. Progressive Web Apps are his jam.
+  johnpettitt:
+    name: John Pettitt
+    company: Relay Media
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/john.jpg
+    bio: "John is co-founder/CTO of Relay Media, a company dedicated to AMP.  Relay provides automated AMP conversion services for many TV and Newspaper sites. John was VP of engineering for BitTorrent, and co-founder/CTO of Beyond.com and CyberSource. John’s photojournalism has appeared in Wired, Vanity Fair, NY Times, Washington Post, on CNN, and on CBS news.  He's had an Internet email address since 1983."
+    twitter: jpp123
+  chenshay:
+    name: Chen Shay
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/chen.jpg
+    bio: Chen is a Software Engineer on the AMP Team @ Google. Prior to AMP, Chen worked on Google Saves and most recently, Health Search. Chen launched Health Cards in developing countries, and Google Answers to Health questions. Chen is a Silicon Valley native. She holds a bachelor's degree in Computer Science from UC Santa Barbara and a Master's degree in Computer Science from Ben Gurion University in Israel.
+  rannazhou:
+    name: Ranna Zhou
+    company: Google
+    bio: Ranna Zhou is a product manager on Search working to bring information context and summarization of news to users. She studied computer science at MIT and exercises her degree coding for non-profits.
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/ranna.jpg
+  yaminigupta:
+    name: Yamini Gupta
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/yamini.jpg
+    bio: As Head of Publisher Marketing at Google, Yamini leads marketing programs aimed at helping publishers thrive and create sustainable businesses with advertising. In this role, Yamini drives industry education and product marketing for DoubleClick's mobile, video and programmatic solutions as well as the open source Accelerated Mobile Pages (AMP) project. Yamini has more than 10 years of experience in marketing and advertising and started her career marketing consumer goods at DDB in India. She holds a Bachelor's degree in English Literature from Bombay University, and an MBA from Columbia University in New York.
+  vamseejasti:
+    name: Vamsee Jasti
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/vamsee.jpg
+    bio: Vamsee Jasti is the product manager for advertising in AMP. His mission is to keep the web open and free by helping publishers make money without comprising on user experience. The other way he helps publishers is by clicking on every ad he sees on the web.
+  matthewprince:
+    name: Matthew Prince
+    company: Cloudflare
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/matthew.jpg
+    bio: Matthew Prince is co-founder and CEO of CloudFlare. CloudFlare’s mission is to help build a better Internet. Before CloudFlare, he co-founded Unspam Technologies, an anti-spam startup where he continues to serve as Chairman. Since then, Matthew has been an adjunct professor of law at the John Marshall Law School and co-creator of Project Honey Pot, the largest open source community tracking online fraud and abuse. He is a World Economic Forum Technology Pioneer, winner of the 2011 Tech Fellow Award, and serves on the Board of Advisors for the Center for Information Technology and Privacy Law. Matthew holds an MBA from Harvard Business School where he was a George F. Baker Scholar and awarded the Dubliner Prize for Entrepreneurship. He is a member of the Illinois Bar, and earned his J.D. from the University of Chicago and B.A. from Trinity College.
+  daneknecht:
+    name: Dane Knecht
+    company: Cloudflare
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/dane.jpg
+  sammeder:
+    name: Sam Meder
+    company: Pinterest
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/sam.jpg
+    bio: Sam Meder is a engineer at Pinterest where he is responsible for performance across all platforms. Prior to Pinterest he's been a technical leader and manager at a variety of startups.
+  vadimantonov:
+    name: Vadim Antonov
+    company: Pinterest
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/vadim.jpg
+    bio: Vadim Antonov is a Tech Lead for the User Acquisition team at Pinterest. Previously, he worked on search at Bing & Yandex, including work on crawling, index quality, query rewriting and ranking.
+  beckcronindixon:
+    name: Beck Cronin-Dixon
+    company: Eventbrite
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/beck.jpg
+    bio: Beck Cronin-Dixon is an SEO Engineer and lead developer for AMP at Eventbrite. As a Nashville Software School alumni she is passionate about encouraging aspiring coders into engineering careers. Her SEO mantra is ‘search engine optimization and user experience should always go hand in hand’. She is a world traveler who has lived on 4 different continents.
+  sarahsaltrickmeyer:
+    name: Sarah Saltrick Meyer
+    company: Buzzfeed
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/sarah.jpg
+    bio: Sarah Saltrick Meyer is a native New Yorker, employed as software engineer at BuzzFeed. She likes good websites and the opera. After a career in front-end engineering at all sorts of startups in the New York-Boston corridor, she now builds a modern web experience for BuzzFeed's millions of readers.
+  nicolesullivan:
+    name: Nicole Sullivan
+    company: Salesforce
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/nicole.jpg
+    bio: Nicole is an Engineering Director at Salesforce and the creator of Object Oriented CSS, Dr Frankenstyle, CSSLint, and CSSConf. Follow her on [Twitter](https://twitter.com/stubbornella), read her [blog](http://www.stubbornella.org/content/).
+  jeremykeith:
+    name: Jeremy Keith
+    company: Clearleft
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/jeremy.jpg
+    bio: Jeremy Keith is an Irish web developer living in Brighton, England where he co-founded the splendid design agency Clearleft. He wrote the books DOM Scripting, Bulletproof Ajax, HTML5 For Web Designers, and most recently Resilient Web Design. He also organised events like dConstruct, Responsive Day Out, and the world's first Science Hack Day. Jeremy spends most of his time goofing off on the internet, documenting his time-wasting on adactio.com, where he has been writing for over fifteen years.
+  ginatrapani:
+    name: Gina Trapani
+    company: Postlight
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/gina.jpg
+    bio: Gina Trapani is a writer, podcaster, and Director of Engineering at Postlight, a digital product studio in New York City. Gina helped create Postlight Labs' Mercury AMP Converter, a tool that transforms web pages into AMP with one line of code. Once upon a time, she founded Lifehacker.
+  paulbakaus:
+    name: Paul Bakaus
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/paul.jpg
+    bio: Paul Bakaus is a Developer Advocate at Google, heading up outreach for AMP. He assists developers, designers, and filmmakers to create better, faster, more immersive and more convincing digital experiences.
+  malteubl:
+    name: Malte Ubl
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/malte.jpg
+    bio: Malte Ubl is the tech lead of the AMP Project. He previously spent 5 years at Google making JavaScript based apps go fast and in his free time, he is one of the co-organizers of JSConf EU.
+  rudygalfi:
+    name: Rudy Galfi
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/rudy.jpg
+    bio: Rudy Galfi is the product management lead for the AMP Project since August 2015. He previously spent four years at Google building personalized content recommendation experiences for various Google products and was product manager for Google News. Prior to Google, Rudy was a software engineer at Microsoft.
+  senthilpadmanabhan:
+    name: Senthil Padmanabhan
+    company: eBay
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/senthil.jpg
+    bio: Senthil Padmanabhan is a Principal Engineer & Web Platform Lead at eBay, building the multiscreen shopping experience. He is specialized in web technologies such as JavaScript, HTML, CSS, along with web performance & optimization.
+  ardanarac:
+    name: Ardan Arac
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/ardan.jpg
+    bio: Ardan leads fresh content products in Google search. She has been a product manager at Google since 2006. She studied electrical engineering previously.
+  ericlindley:
+    name: Eric Lindley
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/eric.jpg
+    bio: Eric Lindley is a product manager on the AMP Project, focused on format support. Previously at Google he worked on the initial launch of the standalone Google Photos app.
+  richardgingras:
+    name: Richard Gingras
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/richard.jpg
+    bio: Richard Gingras is Vice President of News at Google. In that role he guides Google’s strategies relating to the media ecosystem and oversees many of Google’s news and media related products. Richard was a key instigator of the AMP project and was previously co-founder of the Trust Project, a global effort within the journalism community to insure that high quality journalism is recognized for the credibility it deserves.
+  sebastianbenz:
+    name: Sebastian Benz
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/sebastian.jpg
+    bio: Sebastian Benz is a Developer Advocate at Google. He created ampbyexample.com and helps partners be more successful on the web and on Android. Sebastian has a PhD in Computer Science from TU Muenchen.
+  madisonminer:
+    name: Madison Miner
+    company: WompMobile
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/madison.jpg
+    bio: Madison Miner is co-founder of WompMobile, a mobile optimization company that converts complex, e-commerce websites into AMP pages, bringing to life faster, more compelling digital experiences. Madison, a software engineer, is relentless about finding creative ways to create rich functionality, while keeping mobile architecture lean and performant. In his spare time, Madison can be found peddling his bike, meandering through Washington state.
+  mikeadler:
+    name: Mike Adler
+    company: Etsy
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/mike.jpg
+    bio: Mike Adler is a Staff Software Engineer at Etsy where he focuses on performance matters. Mike likes to build custom monitoring tools to answer tough questions about performance. He hasn't had a personal web site since 1997.
+  alighassemi:
+    name: Ali Ghassemi
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/ali.jpg
+  sriramkrishnan:
+    name: Sriram Krishnan
+    company: Google
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/sriram.jpg
+  marikokosaka:
+    name: Mariko Kosaka
+    company: Scripto
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/mariko.jpg
+  marcelodebarros:
+    name: Marcelo De Barros
+    company: Microsoft
+  zackhendlin:
+    name: Zack Hendlin
+    company: LinkedIn
+  honeymittal:
+    name: Honey Mittal
+    company: Wego
+    pic: /images/AmpPwaVideos/amp-conf-2017/speakers/honey.jpg
+    bio: Honey is Senior Vice President - Product at Wego.com, a search-driven online travel marketplace operating across the Middle East & Asia-Pacific and backed by top-tier investors. He has been working with 'everything mobile' for the last 8 years. The last 3 of them have been at Wego, building Wego's top-ranked mobile apps and more recently with revamping Wego's web products. Having recently launched Wego's new mobile web experience (PWA and AMP Pages), Wego's product & engineering team hopes to share their experience with the community and also learn from others at the AMP Summit!
