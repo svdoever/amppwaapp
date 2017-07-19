@@ -9,5 +9,5 @@ pipelines:
   default:
     - step:
         script:
-          - git push https://serge_van_den_oever@hotmail.com:Telefax1$@amppwaapps.scm.azurewebsites.net/AmpPwaApps.git
+          - git push https://serge_van_den_oever@hotmail.com:Telefax1@amppwaapps.scm.azurewebsites.net/AmpPwaApps.git
           - echo "Done."
