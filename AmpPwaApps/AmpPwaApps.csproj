@@ -42,5 +42,10 @@
   <ItemGroup>
     <None Include="Areas\ReactTest\Views\React.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot/js\tutorial.jsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>
