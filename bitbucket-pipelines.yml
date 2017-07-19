@@ -9,5 +9,5 @@ pipelines:
   default:
     - step:
         script:
-          - git push https://serge_van_den_oever%40hotmail.com:$AZURE_PASSWORD@amppwaapps.scm.azurewebsites.net/AmpPwaApps.git master
+          - git push https://$AZURE_LOGIN:$AZURE_PASSWORD@amppwaapps.scm.azurewebsites.net/AmpPwaApps.git master
           - echo "Done."
