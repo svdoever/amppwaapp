@@ -8,28 +8,33 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AmpPwaApps.Controllers
 {
-  public class HomeController : Controller
-  {
-    public IActionResult Index()
+    public class HomeController : Controller
     {
-      return (IActionResult) this.View();
-    }
+        public IActionResult Index()
+        {
+            return (IActionResult)this.View();
+        }
 
-    public IActionResult About()
-    {
-      this.ViewData["Message"] = (object) "Your application description page!.";
-      return (IActionResult) this.View();
-    }
+        public IActionResult React()
+        {
+            return (IActionResult)this.View();
+        }
 
-    public IActionResult Contact()
-    {
-      this.ViewData["Message"] = (object) "Your contact page.";
-      return (IActionResult) this.View();
-    }
+        public IActionResult About()
+        {
+            this.ViewData["Message"] = (object)"Your application description page!.";
+            return (IActionResult)this.View();
+        }
 
-    public IActionResult Error()
-    {
-      return (IActionResult) this.View();
+        public IActionResult Contact()
+        {
+            this.ViewData["Message"] = (object)"Your contact page.";
+            return (IActionResult)this.View();
+        }
+
+        public IActionResult Error()
+        {
+            return (IActionResult)this.View();
+        }
     }
-  }
 }
