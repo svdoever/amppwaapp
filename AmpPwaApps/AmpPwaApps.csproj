@@ -7,7 +7,9 @@
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
   <ItemGroup>
     <Content Include="wwwroot\amp\amp_audi-sportsback-a5.html" />
     <Content Include="wwwroot\js\tutorial.jsx" />
