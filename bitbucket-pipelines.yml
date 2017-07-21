@@ -9,5 +9,5 @@ pipelines:
   default:
     - step:
         script:
-          - git push https://$AZURE_LOGIN:$AZURE_PASSWORD@amppwaapps.scm.azurewebsites.net/AmpPwaApps.git master
+          - echo DISABLED: git push https://$AZURE_LOGIN:$AZURE_PASSWORD@amppwaapps.scm.azurewebsites.net/AmpPwaApps.git master
           - echo "Done."
