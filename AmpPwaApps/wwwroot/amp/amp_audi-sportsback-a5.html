@@ -2,7 +2,7 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <link rel="canonical" href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special" />
+    <link rel="canonical" href="https://amppwaapps.azurewebsites.net/amp/amp_audi-sportsback-a5.html" />
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -61,6 +61,7 @@
       .additonal-pricing-font {
         color: #b9bbbc;
         font-family: Arial Rounded MT Bold,Arial Rounded MT,Varela Round,Segoe UI,Helvetica Neue,Helvetica,Arial,"sans-serif";
+        font-size: 16px;
       }
 
       .colour-picker {
@@ -88,6 +89,22 @@
       .scubablauw-metallic {
         background-color: rgb(32, 71, 112);
       }
+
+      .selected-color-preview {
+        height: 40px;
+      }
+
+        .selected-color-preview div {
+          width: 40px;
+          border-radius: 50%;
+          display: inline-block;
+          border: 1px solid rgba(0,0,0,.13);
+          margin-right: 10px;
+        }
+
+        .selected-color-preview span {
+          white-space: nowrap;
+        }
     </style>
   </head>
   <body>
@@ -169,6 +186,11 @@
                  class="colour-picker scubablauw-metallic"></div>
           </div>
         </div>
+        <div class="selected-color-preview">
+          <div class="tangorood-metallic"></div>
+          <span [text]="props[currentColour].fullColourName || props[props.defaultColour].fullColourName"
+           class="title-font selected-color-preview">Tangorood Metallic</span>
+        </div>
       </section>
     </main>
     <footer>
@@ -182,6 +204,7 @@
         "defaultColour": "tangoroodMetallic",
         "tangoroodMetallic": {
           "fullColourName": "Tangorood Metallic",
+          "colourClassName": "tangorood-metallic",
           "images": [
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg",
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png",
@@ -192,6 +215,7 @@
         },
         "briljantzwart": {
           "fullColourName": "Briljantzwart",
+          "colourClassName": "briljantzwart",
           "images": [
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/audi-a5-sb-briljantzwart-1.png",
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/audi-a5-sb-briljantzwart-2.png",
@@ -202,6 +226,7 @@
         },
         "scubablauwMetallic": {
           "fullColourName": "Scubablauw Metallic",
+          "colourClassName": "scubablauw-metallic",
           "images": [
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/audi-a5-sb-scubablauw-metallic-1.png",
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/audi-a5-sb-scubablauw-metallic-2.png",
