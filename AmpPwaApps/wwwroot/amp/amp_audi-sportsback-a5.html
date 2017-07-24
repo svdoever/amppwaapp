@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html ⚡>
   <head>
     <meta charset="utf-8">
@@ -8,6 +8,7 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -199,12 +200,33 @@
         <hr>
       </section>
       <section class="container">
-        <div class="amountsSelector">
-
+        <div class="amountSelector">
+          <h3 class="title-font">
+            Kilometers per jaar
+          </h3>
+          <amp-selector layout="container" name="kilometersPerYearSelector">
+            <select>
+              <option selected value=10000 label="10000 km"></option>
+              <option value=15000 label="15000 km"></option>
+              <option value=20000 label="20000 km"></option>
+              <option value=25000 label="25000 km"></option>
+              <option value=30000 label="30000 km"></option>
+            </select>
+          </amp-selector>
         </div>
-        <div class="amountsSelector">
-
+        <div class="amountSelector">
+          <h3 class="title-font">
+            Looptijd
+          </h3>
+          <amp-selector layout="container" name="durationSelector">
+            <select>
+              <option selected value=24 label="24 Maanden"></option>
+              <option value=36 label="36 Maanden"></option>
+              <option value=48 label="48 Maanden"></option>
+            </select>
+          </amp-selector>
         </div>
+        <hr>
       </section>
     </main>
     <footer>
@@ -215,8 +237,6 @@
   <amp-state id="props">
     <script type="application/json">
       {
-        "kilometersPerYear": [10000, 15000, 20000, 25000, 30000],
-        "duration": [24, 36, 48],
         "defaultColour": "tangoroodMetallic",
         "tangoroodMetallic": {
           "fullColourName": "Tangorood Metallic",
