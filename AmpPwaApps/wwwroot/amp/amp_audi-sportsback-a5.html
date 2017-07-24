@@ -8,7 +8,6 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -37,11 +36,13 @@
         margin-top: 20px;
       }
 
-        .carousel-preview button {
+        .carousel-preview div {
           height: 40px;
           width: 60px;
           min-width: 60px;
           padding: 0;
+          border: none;
+          display: inline-block;
         }
 
       hr {
@@ -144,31 +145,31 @@
              width="700" height="251" layout="responsive" alt=""></amp-img>
         </amp-carousel>
         <div class="carousel-preview">
-          <button on="tap:carousel-with-preview.goToSlide(index=0)">
+          <div role="button" tabindex="1" on="tap:carousel-with-preview.goToSlide(index=0)">
             <amp-img [src]="props[currentColour].images[0] || props[props.defaultColour].images[0]"
             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
               width="60" height="40" layout="responsive" alt=""></amp-img>
-          </button>
-          <button on="tap:carousel-with-preview.goToSlide(index=1)">
+          </div>
+          <div role="button" tabindex="2" on="tap:carousel-with-preview.goToSlide(index=1)">
             <amp-img [src]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
              width="60" height="40" layout="responsive" alt=""></amp-img>
-          </button>
-          <button on="tap:carousel-with-preview.goToSlide(index=2)">
+          </div>
+          <div role="button" tabindex="3" on="tap:carousel-with-preview.goToSlide(index=2)">
             <amp-img [src]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
              width="60" height="40" layout="responsive" alt=""></amp-img>
-          </button>
-          <button on="tap:carousel-with-preview.goToSlide(index=3)">
+          </div>
+          <div role="button" tabindex="4" on="tap:carousel-with-preview.goToSlide(index=3)">
             <amp-img [src]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
              width="60" height="40" layout="responsive" alt=""></amp-img>
-          </button>
-          <button on="tap:carousel-with-preview.goToSlide(index=4)">
+          </div>
+          <div role="button" tabindex="5" on="tap:carousel-with-preview.goToSlide(index=4)">
             <amp-img [src]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
              width="60" height="40" layout="responsive" alt=""></amp-img>
-          </button>
+          </div>
         </div>
       </section>
       <section class="container">
@@ -199,7 +200,7 @@
       </section>
       <section class="container">
         <div class="amountsSelector">
-          
+
         </div>
         <div class="amountsSelector">
 
