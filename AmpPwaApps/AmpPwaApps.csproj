@@ -7,6 +7,10 @@
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\AmpPwaApps - Web Deploy.pubxml" />
+  </ItemGroup>
   
   <ItemGroup>
     <Content Include="wwwroot\amp\amp_audi-sportsback-a5.html" />
@@ -47,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolder\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
 </Project>
