@@ -8,6 +8,7 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -96,10 +97,12 @@
 
         .selected-color-preview div {
           width: 40px;
+          height: 100%;
           border-radius: 50%;
           display: inline-block;
           border: 1px solid rgba(0,0,0,.13);
           margin-right: 10px;
+          margin-bottom: -14px;
         }
 
         .selected-color-preview span {
@@ -187,9 +190,19 @@
           </div>
         </div>
         <div class="selected-color-preview">
-          <div class="tangorood-metallic"></div>
+          <div class="tangorood-metallic" [class]="props[currentColour].colourClassName || props[props.defaultColour].colourClassName"></div>
           <span [text]="props[currentColour].fullColourName || props[props.defaultColour].fullColourName"
            class="title-font selected-color-preview">Tangorood Metallic</span>
+           <span class="additonal-pricing-font" [text]="'+ € ' + (props[currentColour].pricePerMonth == 0 ? 0 : (props[currentColour].pricePerMonth || props[props.defaultColour].pricePerMonth)) + ' p/m'">+ € 16.01 p/m</span>
+        </div>
+        <hr>
+      </section>
+      <section class="container">
+        <div class="amountsSelector">
+          
+        </div>
+        <div class="amountsSelector">
+
         </div>
       </section>
     </main>
@@ -201,10 +214,13 @@
   <amp-state id="props">
     <script type="application/json">
       {
+        "kilometersPerYear": [10000, 15000, 20000, 25000, 30000],
+        "duration": [24, 36, 48],
         "defaultColour": "tangoroodMetallic",
         "tangoroodMetallic": {
           "fullColourName": "Tangorood Metallic",
           "colourClassName": "tangorood-metallic",
+          "pricePerMonth": 16.01,
           "images": [
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg",
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png",
@@ -216,6 +232,7 @@
         "briljantzwart": {
           "fullColourName": "Briljantzwart",
           "colourClassName": "briljantzwart",
+          "pricePerMonth": 0.00,
           "images": [
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/audi-a5-sb-briljantzwart-1.png",
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/audi-a5-sb-briljantzwart-2.png",
@@ -227,6 +244,7 @@
         "scubablauwMetallic": {
           "fullColourName": "Scubablauw Metallic",
           "colourClassName": "scubablauw-metallic",
+          "pricePerMonth": 16.01,
           "images": [
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/audi-a5-sb-scubablauw-metallic-1.png",
             "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/audi-a5-sb-scubablauw-metallic-2.png",
