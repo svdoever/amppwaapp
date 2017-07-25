@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmpPwaApps", "AmpPwaApps\AmpPwaApps.csproj", "{81878D1F-B9B8-4E6D-8525-F64D9D91B057}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmpPwaApps", "AmpPwaApps\AmpPwaApps.csproj", "{81878D1F-B9B8-4E6D-8525-F64D9D91B057}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{77FAB908-3492-4085-9EB9-69DBECF0D24F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
