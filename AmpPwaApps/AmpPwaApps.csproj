@@ -13,6 +13,8 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Content Include="wwwroot\amp\amp_audi-sportsback-a5 - Copy.html" />
+    <Content Include="wwwroot\amp\amp_audi-sportsback-a5-Serge.html" />
     <Content Include="wwwroot\amp\amp_audi-sportsback-a5.html" />
     <Content Include="wwwroot\js\tutorial.jsx" />
   </ItemGroup>

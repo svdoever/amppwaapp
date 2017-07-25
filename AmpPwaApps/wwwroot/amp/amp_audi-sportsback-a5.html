@@ -300,6 +300,7 @@
               <option value=48 label="48 Maanden">48 Maanden</option>
             </select>
         </div>
+        <pre><span [text]="(myRemoteState.title || 'autem hic labore sunt dolores incidunt')">autem hic labore sunt dolores incidunt</span></pre>
         <hr>
       </section>
       <section class="container">
@@ -370,5 +371,9 @@
         }
       }
     </script>
+  </amp-state>
+  <amp-state id="myRemoteState"
+             src="https://jsonplaceholder.typicode.com/posts/24"
+             [src]="'https://jsonplaceholder.typicode.com/posts/' + (selectedDuration || '24')">
   </amp-state>
 </html>
