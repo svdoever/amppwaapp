@@ -41,7 +41,6 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -140,17 +139,43 @@
           margin-bottom: -14px;
         }
 
-        .selected-color-preview span {
-          white-space: nowrap;
-        }
 
-      .amount-selector h3, .amount-selector amp-selector {
-        display: inline-block;
+
+      .amount-selector select {
+        width: 150px;
+        border-color: #e1e1e1;
       }
 
       .total-amount h3 {
         display: inline-block;
         margin-right: 10px;
+      }
+
+      .button-orange {
+        width: 100%;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .button-orange a {
+        background-color: #ff9038;
+        border-color: #ff9038;
+        color: #fff;
+        border: 1px solid currentColor;
+        font-weight: 700;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 1em;
+        text-decoration: none;
+        padding: 9px 24px;
+        cursor: pointer;
+        box-shadow: 0 0 0 0 transparent;
+        font-family: "Arial Regular", "Open Sans", Arial, sans-serif;
+        transition: background .2s linear,box-shadow .2s linear;
       }
     </style>
   </head>
@@ -237,7 +262,7 @@
           <div class="tangorood-metallic" [class]="props[currentColour].colourClassName || props[props.defaultColour].colourClassName"></div>
           <span [text]="props[currentColour].fullColourName || props[props.defaultColour].fullColourName"
            class="title-font selected-color-preview">Tangorood Metallic</span>
-           <span class="additonal-pricing-font" [text]="'+ € ' + (props[currentColour].pricePerMonth == 0 ? 0 : (props[currentColour].pricePerMonth || props[props.defaultColour].pricePerMonth)) + ' p/m'">+ € 16.01 p/m</span>
+           <span class="additonal-pricing-font" [text]="'+ € ' + (props[currentColour].pricePerMonth == 0 ? round(0) / 100 : (props[currentColour].pricePerMonth || props[props.defaultColour].pricePerMonth)) + ' p/m'">+ € 16.01 p/m</span>
         </div>
         <hr>
       </section>
@@ -246,8 +271,7 @@
           <h3 class="title-font">
             Kilometers per jaar
           </h3>
-            <select on="change:AMP.setState({selectedKilometers: event.value,
-                                             kilometragePrice: (props.basePrice * (0.07 * ((event.value - 5000) / 5000) + 1))})">
+            <select on="change:AMP.setState({selectedKilometers: (0.08 * ((event.value - 5000) / 5000) + 1)})">
               <option selected value=10000 label="10000 km"></option>
               <option value=15000 label="15000 km"></option>
               <option value=20000 label="20000 km"></option>
@@ -259,12 +283,29 @@
           <h3 class="title-font">
             Looptijd
           </h3>
-            <select on="change:AMP.setState({selectedDuration: event.value,
-                                             durationPrice: (kilometragePrice * (1 - ((event.value - 12) / 12) * 0.05))})">
+            <select on="change:AMP.setState({selectedDuration: (1 - ((event.value - 12) / 12) * 0.05)})">
               <option selected value=24 label="24 Maanden"></option>
               <option value=36 label="36 Maanden"></option>
               <option value=48 label="48 Maanden"></option>
             </select>
+        </div>
+        <hr>
+      </section>
+      <!-- <section class="container">
+        <h3 class="title-font">
+          Extra Opties
+        </h3>
+        <div class="risk-level-selector">
+
+        </div>
+        <hr>
+      </section>
+      <section class="container">
+        <h3 class="title-font">
+          Verzekering
+        </h3>
+        <div class="risk-level-selector">
+
         </div>
         <hr>
       </section>
@@ -276,18 +317,24 @@
 
         </div>
         <hr>
-      </section>
+      </section> -->
       <section class="container">
         <div class="total-amount">
           <h3 class="title-font">
             Totaalbedrag
           </h3>
-          <span class="additonal-pricing-font" [text]="'€ ' + round(((props.basePrice * (0.08 * ((selectedKilometers - 5000) / 5000) + 1)) * (1 - ((selectedDuration - 12) / 12) * 0.05) || props.finalPrice) * 100) / 100 + ' p/m'">€ 574.77 p/m</span>
+          <span class="additonal-pricing-font" [text]="'€ ' + (round(((props.basePrice * (selectedKilometers || 1.08) * (selectedDuration || 0.95)) || props.finalPrice) * 100) / 100 + props[currentColour].pricePerMonth) + ' p/m'">€ 610.47 p/m</span>
         </div>
       </section>
     </main>
     <footer>
-
+      <section class="container">
+        <div class="button-orange">
+          <a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special" target="_self">
+            Kies deze uitvoering
+          </a>
+        </div>
+      </section>
     </footer>
   </body>
 
