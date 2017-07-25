@@ -110,6 +110,15 @@
         .selected-color-preview span {
           white-space: nowrap;
         }
+
+      .amount-selector h3, .amount-selector amp-selector {
+        display: inline-block;
+      }
+
+      .total-amount h3 {
+        display: inline-block;
+        margin-right: 10px;
+      }
     </style>
   </head>
   <body>
@@ -200,33 +209,48 @@
         <hr>
       </section>
       <section class="container">
-        <div class="amountSelector">
+        <div class="amount-selector">
           <h3 class="title-font">
             Kilometers per jaar
           </h3>
-          <amp-selector layout="container" name="kilometersPerYearSelector">
-            <select>
+            <select on="change:AMP.setState({selectedKilometers: event.value,
+                                             kilometragePrice: (props.basePrice * (0.07 * ((event.value - 5000) / 5000) + 1))})">
               <option selected value=10000 label="10000 km"></option>
               <option value=15000 label="15000 km"></option>
               <option value=20000 label="20000 km"></option>
               <option value=25000 label="25000 km"></option>
               <option value=30000 label="30000 km"></option>
             </select>
-          </amp-selector>
         </div>
-        <div class="amountSelector">
+        <div class="amount-selector">
           <h3 class="title-font">
             Looptijd
           </h3>
-          <amp-selector layout="container" name="durationSelector">
-            <select>
+            <select on="change:AMP.setState({selectedDuration: event.value,
+                                             durationPrice: (kilometragePrice * (1 - ((event.value - 12) / 12) * 0.05))})">
               <option selected value=24 label="24 Maanden"></option>
               <option value=36 label="36 Maanden"></option>
               <option value=48 label="48 Maanden"></option>
             </select>
-          </amp-selector>
         </div>
         <hr>
+      </section>
+      <section class="container">
+        <h3 class="title-font">
+          Eigen Risico
+        </h3>
+        <div class="risk-level-selector">
+
+        </div>
+        <hr>
+      </section>
+      <section class="container">
+        <div class="total-amount">
+          <h3 class="title-font">
+            Totaalbedrag
+          </h3>
+          <span class="additonal-pricing-font" [text]="'€ ' + round(((props.basePrice * (0.08 * ((selectedKilometers - 5000) / 5000) + 1)) * (1 - ((selectedDuration - 12) / 12) * 0.05) || props.finalPrice) * 100) / 100 + ' p/m'">€ 574.77 p/m</span>
+        </div>
       </section>
     </main>
     <footer>
@@ -237,6 +261,8 @@
   <amp-state id="props">
     <script type="application/json">
       {
+        "basePrice": 595,
+        "finalPrice": 595,
         "defaultColour": "tangoroodMetallic",
         "tangoroodMetallic": {
           "fullColourName": "Tangorood Metallic",
