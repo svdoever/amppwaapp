@@ -201,7 +201,7 @@
       }
       </script>
     </amp-analytics>
-    
+
     <header>
       <section class="container">
         <div id="site-logo">
@@ -220,18 +220,28 @@
         <amp-carousel id="carousel-with-preview" width="700" height="251" layout="responsive" type="slides">
             <amp-img [src]="(props[currentColour].images[0] || props[props.defaultColour].images[0])"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
+             [srcset]="(props[currentColour].images[0] || props[props.defaultColour].images[0])"
+              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
              width="700" height="251" layout="responsive" alt=""></amp-img>
             <amp-img [src]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
+             [srcset]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
+              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
              width="700" height="251" layout="responsive" alt=""></amp-img>
             <amp-img [src]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
+             [srcset]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
+              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
              width="700" height="251" layout="responsive" alt=""></amp-img>
             <amp-img [src]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
+             [srcset]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
+              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
              width="700" height="251" layout="responsive" alt=""></amp-img>
             <amp-img [src]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
+             [srcset]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
+              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
              width="700" height="251" layout="responsive" alt=""></amp-img>
         </amp-carousel>
         <div class="carousel-preview">
