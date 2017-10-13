@@ -11,13 +11,6 @@
   <ItemGroup>
     <None Remove="Properties\PublishProfiles\AmpPwaApps - Web Deploy.pubxml" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Content Include="wwwroot\amp\amp_audi-sportsback-a5 - Copy.html" />
-    <Content Include="wwwroot\amp\amp_audi-sportsback-a5-Serge.html" />
-    <Content Include="wwwroot\amp\amp_audi-sportsback-a5.html" />
-    <Content Include="wwwroot\js\tutorial.jsx" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
@@ -45,11 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Areas\ReactTest\Views\React.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Update="wwwroot/js\tutorial.jsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolder\" />
