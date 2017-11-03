@@ -27,6 +27,7 @@ namespace AmpPwaApps
         {
             services.AddReact();
             services.AddMvc();
+            services.AddCors();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
         }
@@ -64,6 +65,8 @@ namespace AmpPwaApps
                 //config.SetLoadBabel(false);
                 //config.AddScriptWithoutTransform("~/Scripts/bundle.server.js");
             });
+
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod());
 
             app.UseStaticFiles();
             app.UseMvc((Action<IRouteBuilder>)(routes =>
