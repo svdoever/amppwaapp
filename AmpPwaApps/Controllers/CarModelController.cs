@@ -27,5 +27,39 @@ namespace AmpPwaApps.Controllers
             }
             return new ObjectResult(car);
         }
+
+        [HttpGet("{carId}/photos/{colourId}")]
+        public IActionResult GetCarPhotos(string carId, string colourId)
+        {
+            try
+            {
+                var photos = CarModelsDatabase.Cars.First(x => x.Id == carId)
+                                          .Colours.First(x => x.Id == colourId)
+                                            .ImageFolder.Images.Select(x => new Image {
+                                                Url = $"https://www.autoabonnement.nl{x.Url}",
+                                                Alt = x.Alt,
+                                                Width = x.Width,
+                                                Height = x.Height
+                                            }).ToList();
+                var itemContainer = new ItemContainer<Image>();
+                itemContainer.Items = photos;
+                return new ObjectResult(itemContainer);
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("{carId}/kilometrage/{kilometrage}/duration/{duration}/color/{colorId}")]
+        public double GetTotalPrice(string carId, int kilometrage, int duration, string colorId)
+        {
+            var targetCar = CarModelsDatabase.Cars.First(x => x.Id == carId);
+            double kilometrageCoefficient = (0.08 * ((kilometrage - 5000) / 5000) + 1);
+            double durationCoefficient = (1 - ((duration - 12) / 12) * 0.05);
+            double colourPrice = targetCar.Colours.First(x => x.Id == colorId).Price;
+            return Math.Round(targetCar.Price * kilometrageCoefficient * durationCoefficient + colourPrice, 2);
+        }
+        
     }
 }

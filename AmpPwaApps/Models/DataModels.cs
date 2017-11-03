@@ -238,6 +238,12 @@ namespace AmpPwaApps.Models
         public string OverviewUrl { get; set; }
         public string ConfigUrl { get; set; }
         public string TypeSelectionUrl { get; set; }
+        public int MyProperty { get; set; }
+    }
+
+    public class ItemContainer<T>
+    {
+        public List<T> Items { get; set; }
     }
 
 }
