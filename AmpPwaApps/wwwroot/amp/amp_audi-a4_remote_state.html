@@ -42,8 +42,6 @@
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -221,11 +219,6 @@
       <section class="container">
          
         <amp-carousel id="carousel-with-preview" width="700" height="251" layout="responsive" type="slides">
-            <!--<amp-list width="700" height="251" layout="responsive" src="http://localhost:5000/api/cars/d1db6039-228f-4081-9ca1-40f0207e281d/photos/a0f97c3e-7d56-42ae-9c9b-c7078f2397f7">
-                <template id="car-photo-carousel" type="amp-mustache">
-                    <amp-img src="{{url}}" srcset="{{url}}" alt="{{alt}}" width="{{width}}" height="{{height}}" layout="responsive"></amp-img>
-                </template>
-            </amp-list>-->
             <amp-img [src]="(props[currentcolour].images[0] || props[props.defaultcolour].images[0])"
              src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
              [srcset]="(props[currentcolour].images[0] || props[props.defaultcolour].images[0])"
@@ -312,7 +305,7 @@
             Kilometers per jaar
           </h3>
             <select on="change:AMP.setState({
-                                              kilometrageCoefficient: (0.08 * ((event.value - 5000) / 5000) + 1),
+                                              kilometrage: event.value,
                                               selectedKilometrage: event.value
                                            })">
               <option selected value=10000 label="10000 km">10000 km</option>
@@ -327,7 +320,7 @@
             Looptijd
           </h3>
             <select on="change:AMP.setState({
-                                              durationCoefficient: (1 - ((event.value - 12) / 12) * 0.05),
+                                              durationCoefficient: event.value,
                                               selectedDuration: event.value
                                             })">
               <option selected value=24 label="24 Maanden">24 Maanden</option>
@@ -335,7 +328,6 @@
               <option value=48 label="48 Maanden">48 Maanden</option>
             </select>
         </div>
-        <pre><span [text]="myRemoteState.carModel.brand.identifier">d1db6039-228f-4081-9ca1-40f0207eeeee</span></pre>
         <hr>
       </section>
       <section class="container">
@@ -343,14 +335,13 @@
           <h3 class="title-font">
             Totaalbedrag
           </h3>
-          <span class="additonal-pricing-font" [text]="'€ ' + (round(((props.basePrice * (kilometrageCoefficient || 1.08) * (durationCoefficient || 0.95)) || props.finalPrice) * 100) / 100 + props[currentColour].pricePerMonth) + ' p/m'">€ 610.47 p/m</span>
+          <span class="additonal-pricing-font" [text]="'€ ' + leasePriceState.totalLeasePrice + ' p/m'">€ 532.95 p/m</span>          
         </div>
       </section>
     </main>
     <footer>
       <section class="container">
         <div class="button-orange">
-          <!-- https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special?Duration=48-maanden&Mileage=10-000-km&SelectedOptions=&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-500-10&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld -->
           <a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=24-maanden&Mileage=10-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi"
             [href]="'https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=' + (selectedDuration || '24') + '-maanden&Mileage=' + ((selectedKilometrage / 1000) || 10) + '-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=' + (props[currentColour].id || props[props.defaultColour].id) + '&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi'"  target="_self">
             Kies deze uitvoering
@@ -407,8 +398,15 @@
       }
     </script>
   </amp-state>
+  <amp-state id="leasePriceState" [src]="'https://amppwaapps.azurewebsites.net/api/cars/d1db6039-228f-4081-9ca1-40f0207e281d/kilometrage/' + (kilometrage || '25000') + '/duration/' + (selectedDuration || '24') + '/color/a0f97c3e-7d56-42ae-9c9b-c7078f2397f7'">
+    <script type="application/json">
+      {
+        "totalLeasePrice": 532.95
+      }
+    </script>
+  </amp-state>
   <amp-state id="myRemoteState"
-             src="http://localhost:5000/api/cars/d1db6039-228f-4081-9ca1-40f0207e281d">
+             src="https://amppwaapps.azurewebsites.net/api/cars/d1db6039-228f-4081-9ca1-40f0207e281d">
     <script type="application/json">
         {
           "id": "d1db6039-228f-4081-9ca1-40f0207eeeee"

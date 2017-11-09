@@ -43,7 +43,7 @@ namespace AmpPwaApps.Controllers
                                             }).ToList();
                 var itemContainer = new ItemContainer<Image>();
                 itemContainer.Items = photos;
-                return new ObjectResult(itemContainer);
+                return new JsonResult(itemContainer);
             }
             catch (Exception)
             {
@@ -52,13 +52,17 @@ namespace AmpPwaApps.Controllers
         }
 
         [HttpGet("{carId}/kilometrage/{kilometrage}/duration/{duration}/color/{colorId}")]
-        public double GetTotalPrice(string carId, int kilometrage, int duration, string colorId)
+        public IActionResult GetTotalPrice(string carId, int kilometrage, int duration, string colorId)
         {
             var targetCar = CarModelsDatabase.Cars.First(x => x.Id == carId);
             double kilometrageCoefficient = (0.08 * ((kilometrage - 5000) / 5000) + 1);
             double durationCoefficient = (1 - ((duration - 12) / 12) * 0.05);
             double colourPrice = targetCar.Colours.First(x => x.Id == colorId).Price;
-            return Math.Round(targetCar.Price * kilometrageCoefficient * durationCoefficient + colourPrice, 2);
+            var leasePriceResult = new
+            {
+                TotalLeasePrice = Math.Round(targetCar.Price * kilometrageCoefficient * durationCoefficient + colourPrice, 2)
+            };
+            return new JsonResult(leasePriceResult);
         }
         
     }
