@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "allowSyntheticDefaultImports": true,
+        "strictNullChecks": true,
+        "module": "commonjs",
+        "target": "esnext",
+        "jsx": "react",
+        "lib": ["dom", "esnext"],
+        "types": [
+            "webpack-env",
+            "node"
+        ],
+        "typeRoots": [
+            "./types",
+            "node_modules/@types",
+            "node_modules"
+        ],
+        "paths": { 
+            "react": ["./node_modules/@types/react"],
+            "*": ["./types/*", "*"]
+        }
+    },
+    "include": [
+        "./pages/**/*",
+        "./components/**/*"
+    ]
+}

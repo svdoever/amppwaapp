@@ -1,0 +1,14 @@
+!assets
+!pages
+pages/**/*.js
+pages/**/*.js.map
+!pages/_document.js
+
+!.storybook/**
+!stories/**
+
+.DS_Store
+node_modules
+dist
+.next
+yarn-error.log
