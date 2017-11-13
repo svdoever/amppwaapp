@@ -213,141 +213,152 @@
     </header>
     <main>
       <hr>
-      <section class="container">
-        <h1 class="title-font">Gaudi A4 Limousine</h1>
-      </section>
-      <section class="container">
-         
-        <amp-carousel id="carousel-with-preview" width="700" height="251" layout="responsive" type="slides">
-            <amp-img [src]="(props[currentColour].images[0] || props[props.defaultColour].images[0])"
-             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
-             [srcset]="(props[currentColour].images[0] || props[props.defaultColour].images[0])"
-              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
-             width="700" height="251" layout="responsive" alt=""></amp-img>
-            <amp-img [src]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
-             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
-             [srcset]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
-              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
-             width="700" height="251" layout="responsive" alt=""></amp-img>
-            <amp-img [src]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
-             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
-             [srcset]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
-              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
-             width="700" height="251" layout="responsive" alt=""></amp-img>
-            <amp-img [src]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
-             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
-             [srcset]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
-              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
-             width="700" height="251" layout="responsive" alt=""></amp-img>
-            <amp-img [src]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
-             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
-             [srcset]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
-              srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
-             width="700" height="251" layout="responsive" alt=""></amp-img>
-        </amp-carousel>
-        <div class="carousel-preview">
-          <div role="button" tabindex="1" on="tap:carousel-with-preview.goToSlide(index=0)">
-            <amp-img [src]="props[currentColour].images[0] || props[props.defaultColour].images[0]"
-            src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
-              width="60" height="40" layout="responsive" alt=""></amp-img>
-          </div>
-          <div role="button" tabindex="2" on="tap:carousel-with-preview.goToSlide(index=1)">
-            <amp-img [src]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
-             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
-             width="60" height="40" layout="responsive" alt=""></amp-img>
-          </div>
-          <div role="button" tabindex="3" on="tap:carousel-with-preview.goToSlide(index=2)">
-            <amp-img [src]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
-             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
-             width="60" height="40" layout="responsive" alt=""></amp-img>
-          </div>
-          <div role="button" tabindex="4" on="tap:carousel-with-preview.goToSlide(index=3)">
-            <amp-img [src]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
-             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
-             width="60" height="40" layout="responsive" alt=""></amp-img>
-          </div>
-          <div role="button" tabindex="5" on="tap:carousel-with-preview.goToSlide(index=4)">
-            <amp-img [src]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
-            src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
-             width="60" height="40" layout="responsive" alt=""></amp-img>
-          </div>
-        </div>
-      </section>
-      <section class="container">
-        <hr>
-        <div>
-          <h3 class="title-font">
-            Kleur Keuze
-          </h3>
-          <div class="colour-selection">
-            <div role="button" tabindex="1"
-                 on="tap:AMP.setState({currentColour: 'briljantzwart'}),carousel-with-preview.goToSlide(index=0)"
-                 class="colour-picker briljantzwart"></div>
-            <div role="button" tabindex="2"
-                 on="tap:AMP.setState({currentColour: 'tangoroodMetallic'}),carousel-with-preview.goToSlide(index=0)"
-                 class="colour-picker tangorood-metallic"></div>
-            <div role="button" tabindex="3"
-                 on="tap:AMP.setState({currentColour: 'scubablauwMetallic'}),carousel-with-preview.goToSlide(index=0)"
-                 class="colour-picker scubablauw-metallic"></div>
-          </div>
-        </div>
-        <div class="selected-color-preview">
-          <div class="tangorood-metallic" [class]="props[currentColour].colourClassName || props[props.defaultColour].colourClassName"></div>
-          <span [text]="props[currentColour].fullColourName || props[props.defaultColour].fullColourName"
-           class="title-font selected-color-preview">Tangorood Metallic</span>
-           <span class="additonal-pricing-font" [text]="'+ € ' + (props[currentColour].pricePerMonth == 0 ? 0 / 100 : (props[currentColour].pricePerMonth || props[props.defaultColour].pricePerMonth)) + ' p/m'">+ € 16.01 p/m</span>
-        </div>
-        <hr>
-      </section>
-      <section class="container">
-        <div class="amount-selector">
-          <h3 class="title-font">
-            Kilometers per jaar
-          </h3>
-            <select on="change:AMP.setState({
+        <section id="pricingOptions">
+            <section class="container">
+                <h1 class="title-font">Gaudi A4 Limousine</h1>
+            </section>
+            <section class="container">
+
+                <amp-carousel id="carousel-with-preview" width="700" height="251" layout="responsive" type="slides">
+                    <amp-img [src]="(props[currentColour].images[0] || props[props.defaultColour].images[0])"
+                             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
+                             [srcset]="(props[currentColour].images[0] || props[props.defaultColour].images[0])"
+                             srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
+                             width="700" height="251" layout="responsive" alt=""></amp-img>
+                    <amp-img [src]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
+                             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
+                             [srcset]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
+                             srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
+                             width="700" height="251" layout="responsive" alt=""></amp-img>
+                    <amp-img [src]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
+                             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
+                             [srcset]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
+                             srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
+                             width="700" height="251" layout="responsive" alt=""></amp-img>
+                    <amp-img [src]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
+                             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
+                             [srcset]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
+                             srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
+                             width="700" height="251" layout="responsive" alt=""></amp-img>
+                    <amp-img [src]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
+                             src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
+                             [srcset]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
+                             srcset="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
+                             width="700" height="251" layout="responsive" alt=""></amp-img>
+                </amp-carousel>
+                <div class="carousel-preview">
+                    <div role="button" tabindex="1" on="tap:carousel-with-preview.goToSlide(index=0)">
+                        <amp-img [src]="props[currentColour].images[0] || props[props.defaultColour].images[0]"
+                                 src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg"
+                                 width="60" height="40" layout="responsive" alt=""></amp-img>
+                    </div>
+                    <div role="button" tabindex="2" on="tap:carousel-with-preview.goToSlide(index=1)">
+                        <amp-img [src]="props[currentColour].images[1] || props[props.defaultColour].images[1]"
+                                 src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png"
+                                 width="60" height="40" layout="responsive" alt=""></amp-img>
+                    </div>
+                    <div role="button" tabindex="3" on="tap:carousel-with-preview.goToSlide(index=2)">
+                        <amp-img [src]="props[currentColour].images[2] || props[props.defaultColour].images[2]"
+                                 src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png"
+                                 width="60" height="40" layout="responsive" alt=""></amp-img>
+                    </div>
+                    <div role="button" tabindex="4" on="tap:carousel-with-preview.goToSlide(index=3)">
+                        <amp-img [src]="props[currentColour].images[3] || props[props.defaultColour].images[3]"
+                                 src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg"
+                                 width="60" height="40" layout="responsive" alt=""></amp-img>
+                    </div>
+                    <div role="button" tabindex="5" on="tap:carousel-with-preview.goToSlide(index=4)">
+                        <amp-img [src]="props[currentColour].images[4] || props[props.defaultColour].images[4]"
+                                 src="https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
+                                 width="60" height="40" layout="responsive" alt=""></amp-img>
+                    </div>
+                </div>
+            </section>
+            <section class="container">
+                <hr>
+                <div>
+                    <h3 class="title-font">
+                        Kleur Keuze
+                    </h3>
+                    <div class="colour-selection">
+                        <div role="button" tabindex="1"
+                             on="tap:AMP.setState({currentColour: 'briljantzwart'}),carousel-with-preview.goToSlide(index=0)"
+                             class="colour-picker briljantzwart"></div>
+                        <div role="button" tabindex="2"
+                             on="tap:AMP.setState({currentColour: 'tangoroodMetallic'}),carousel-with-preview.goToSlide(index=0)"
+                             class="colour-picker tangorood-metallic"></div>
+                        <div role="button" tabindex="3"
+                             on="tap:AMP.setState({currentColour: 'scubablauwMetallic'}),carousel-with-preview.goToSlide(index=0)"
+                             class="colour-picker scubablauw-metallic"></div>
+                    </div>
+                </div>
+                <div class="selected-color-preview">
+                    <div class="tangorood-metallic" [class]="props[currentColour].colourClassName || props[props.defaultColour].colourClassName"></div>
+                    <span [text]="props[currentColour].fullColourName || props[props.defaultColour].fullColourName"
+                          class="title-font selected-color-preview">Tangorood Metallic</span>
+                    <span class="additonal-pricing-font" [text]="'+ € ' + (props[currentColour].pricePerMonth == 0 ? 0 / 100 : (props[currentColour].pricePerMonth || props[props.defaultColour].pricePerMonth)) + ' p/m'">+ € 16.01 p/m</span>
+                </div>
+                <hr>
+            </section>
+            <section class="container">
+                <div class="amount-selector">
+                    <h3 class="title-font">
+                        Kilometers per jaar
+                    </h3>
+                    <select on="change:AMP.setState({
                                               kilometrage: event.value,
                                               selectedKilometrage: event.value
                                            })">
-              <option selected value=10000 label="10000 km">10000 km</option>
-              <option value=15000 label="15000 km">15000 km</option>
-              <option value=20000 label="20000 km">20000 km</option>
-              <option value=25000 label="25000 km">25000 km</option>
-              <option value=30000 label="30000 km">30000 km</option>
-            </select>
-        </div>
-        <div class="amount-selector">
-          <h3 class="title-font">
-            Looptijd
-          </h3>
-            <select on="change:AMP.setState({
+                        <option selected value=10000 label="10000 km">10000 km</option>
+                        <option value=15000 label="15000 km">15000 km</option>
+                        <option value=20000 label="20000 km">20000 km</option>
+                        <option value=25000 label="25000 km">25000 km</option>
+                        <option value=30000 label="30000 km">30000 km</option>
+                    </select>
+                </div>
+                <div class="amount-selector">
+                    <h3 class="title-font">
+                        Looptijd
+                    </h3>
+                    <select on="change:AMP.setState({
                                               durationCoefficient: event.value,
                                               selectedDuration: event.value
                                             })">
-              <option selected value=24 label="24 Maanden">24 Maanden</option>
-              <option value=36 label="36 Maanden">36 Maanden</option>
-              <option value=48 label="48 Maanden">48 Maanden</option>
-            </select>
-        </div>
-        <hr>
-      </section>
-      <section class="container">
-        <div class="total-amount">
-          <h3 class="title-font">
-            Totaalbedrag
-          </h3>
-          <span class="additonal-pricing-font" [text]="'€ ' + leasePriceState.totalLeasePrice + ' p/m'">€ 869.02 p/m</span>          
-        </div>
-      </section>
+                        <option selected value=24 label="24 Maanden">24 Maanden</option>
+                        <option value=36 label="36 Maanden">36 Maanden</option>
+                        <option value=48 label="48 Maanden">48 Maanden</option>
+                    </select>
+                </div>
+                <hr>
+            </section>
+            <section class="container">
+                <div class="total-amount">
+                    <h3 class="title-font">
+                        Totaalbedrag
+                    </h3>
+                    <span class="additonal-pricing-font" [text]="'€ ' + leasePriceState.totalLeasePrice + ' p/m'">€ 869.02 p/m</span>
+                </div>
+            </section>
+            <section class="container">
+                <div class="button-orange">
+                    <a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=24-maanden&Mileage=10-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi"
+                       [href]="'https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=' + (selectedDuration || '24') + '-maanden&Mileage=' + ((selectedKilometrage / 1000) || 10) + '-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=' + (props[currentColour].id || props[props.defaultColour].id) + '&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi'" target="_self">
+                        Kies deze uitvoering
+                    </a>
+                </div>
+            </section>
+        </section>        
+        <section id="leaseOverview">
+            <div on="tap:pricingOptions.hide" class="button-orange">                
+                Aanvragen via de dealer                
+            </div>
+            <div on="tap:pricingOptions.hide" class="button-orange">
+                Terug
+            </div>
+        </section>
     </main>
     <footer>
-      <section class="container">
-        <div class="button-orange">
-          <a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=24-maanden&Mileage=10-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi"
-            [href]="'https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=' + (selectedDuration || '24') + '-maanden&Mileage=' + ((selectedKilometrage / 1000) || 10) + '-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=' + (props[currentColour].id || props[props.defaultColour].id) + '&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi'"  target="_self">
-            Kies deze uitvoering
-          </a>
-        </div>
-      </section>
+      
     </footer>
   </body>
   <amp-state id="props">
@@ -407,4 +418,7 @@
       }
     </script>
   </amp-state>
+  <!--<amp-state id="dealersSites"
+             src="https://www.autoabonnement.nl/api/DealerLocator?action=getnearestdealersites&Brands=942ee7b6-ef6d-48c2-a531-67f23b990320&Services=&SearchQuery=Utrecht&Amount=1000">
+  </amp-state>-->
 </html>
