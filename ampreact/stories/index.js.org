@@ -1,0 +1,41 @@
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import ImageWithHeading from '../src/components/ImageWithHeading/ImageWithHeading.tsx';
+import Container from '../src/components/Container/Container.tsx';
+import AmpStorybookDecorator from '../src/storybook/AmpStorybookDecorator.tsx';
+
+storiesOf('Button', module)
+  .addDecorator(AmpStorybookDecorator)
+  .add('with text', () => (
+    <button onClick={action('clicked')}>Hello Button</button>
+  ))
+  .add('with some emoji', () => (
+    <button onClick={action('clicked')}>😀 😎 👍 💯</button>
+  ));
+
+storiesOf('ImageWithHeading', module)
+  .addDecorator(AmpStorybookDecorator)
+  .add('with text', () => (
+     <ImageWithHeading 
+        src="/img/amp.jpg" 
+        width={1280} 
+        height={853} 
+        alt='Beautiful Image of a rectangle' 
+        heading='Views from OuterSpace and back!'/>
+  ));
+
+storiesOf('Container', module)
+  .addDecorator(AmpStorybookDecorator)
+  .add('default', () => (
+    <Container>
+      <div>Hello world!</div>
+    </Container>
+  ))
+  .add('another', () => (
+    <Container>
+      <div>Hello another!</div>
+    </Container>
+  ));
+

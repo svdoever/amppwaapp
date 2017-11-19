@@ -1,3 +1,7 @@
 {
-    "extends": "../tsconfig"
+    "extends": "../tsconfig.base",
+    "include": [
+        "../src/components/**/*",
+        "../src/storybook/**/*"
+    ]
 }

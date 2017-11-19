@@ -6,9 +6,13 @@ setOptions({
   downPanelInRight: false
 });
 
+console.log("STORYBOOK INITIALIZATION...");
+// Stories loader
 function loadStories() {
-  require('../stories/index.js');
-  // You can require as many stories as you need.
+  const req = require.context("../stories", true, /stories.tsx$/);
+  console.log(req.keys());
+  req.keys().forEach(req);
 }
 
+// Initialize react-storybook
 configure(loadStories, module);

@@ -2,19 +2,14 @@ import * as React from 'react';
 import Head from 'next/head';
 import { Amp } from 'react-amphtml';
 import styled from 'styled-components';
-import {ImageWithHeading} from '../components/ImageWithHeading/ImageWithHeading';
+import Container from '../components/Container';
+import ImageWithHeading from '../components/ImageWithHeading';
 
 declare module 'react' {
   interface HTMLAttributes<T> {
      expanded? : any;
   }
 }
-
-const Container = styled.div`
-  max-width: 70rem;
-  margin: 0 auto;
-  padding: 0 1rem;
-`;
 
 const StyledAmpImg = styled(Amp.Img)`
   filter: ${(props: any) => {

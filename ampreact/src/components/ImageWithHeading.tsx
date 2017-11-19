@@ -1,10 +1,11 @@
-import * as React from 'react';
-import { Amp } from 'react-amphtml';
-import styled from 'styled-components';
+// tslint:disable:max-line-length
+import * as React from "react";
+import { Amp } from "react-amphtml";
+import styled from "styled-components";
 
-declare module 'react' {
+declare module "react" {
     interface HTMLAttributes<T> {
-        expanded? : any;
+        expanded?: any;
     }
 }
 
@@ -19,26 +20,27 @@ border: 2px solid palevioletred;
 
 const StyledAmpImg = styled(Amp.Img)`
 filter: ${(props: any) => {
-  switch (props['data-filter']) {
+  switch (props["data-filter"]) {
     case 1:
-      return 'blur(10px)';
+      return "blur(10px)";
     case 2:
-      return 'hue-rotate(180deg)';
+      return "hue-rotate(180deg)";
     case 3:
-      return 'invert(100%)';
+      return "invert(100%)";
     case 4:
-      return 'grayscale(100%)';
+      return "grayscale(100%)";
     case 5:
-      return 'sepia(100%)';
+      return "sepia(100%)";
     case 6:
-      return 'saturate(100%)';
+      return "saturate(100%)";
     default:
-      return 'none';
+      return "none";
   }
 }};
 `;
 
-export const ImageWithHeading = ({src, width, height, alt = "", heading = ""} : {src: string, width: number, height: number, alt?: string, heading?: string}) => (
+// tslint:disable-next-line:max-line-length
+const ImageWithHeading = ({src, width, height, alt = "", heading = ""}: {src: string, width: number, height: number, alt?: string, heading?: string}) => (
     <div>
         <figure className="ampstart-image-with-heading m0 relative mb4">
             <StyledAmpImg data-filter={5} src={src} width={width} height={height} layout="responsive" alt={alt}></StyledAmpImg>
@@ -49,7 +51,7 @@ export const ImageWithHeading = ({src, width, height, alt = "", heading = ""} : 
             </figcaption>
         </figure>
         <Amp.Accordion>
-            <section expanded> 
+            <section expanded="true">
                 <h4>Section 1</h4>
                 <Button>I'm a magic button!</Button>
             </section>
@@ -60,8 +62,10 @@ export const ImageWithHeading = ({src, width, height, alt = "", heading = ""} : 
             </section>
             <section>
                 <h4>Section 3</h4>
-                <p>More awesome content!!</p>
+                <p>More awesome content!!!!!</p>
             </section>
         </Amp.Accordion>
   </div>
 );
+
+export default ImageWithHeading;
