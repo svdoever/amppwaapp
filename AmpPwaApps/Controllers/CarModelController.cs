@@ -3,7 +3,6 @@ using AmpPwaApps.Models;
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using Microsoft.AspNetCore.Cors;
 
 namespace AmpPwaApps.Controllers
 {

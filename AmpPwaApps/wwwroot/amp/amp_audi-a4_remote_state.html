@@ -42,6 +42,7 @@
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -157,7 +158,7 @@
         margin-right: 10px;
       }
 
-      .button-orange {
+      .button-orange, .button-back {
         width: 100%;
         display: block;
         margin-top: 20px;
@@ -165,7 +166,7 @@
         text-align: center;
       }
 
-      .button-orange a {
+    .button-orange a, .button-orange span {
         background-color: #ff9038;
         border-color: #ff9038;
         color: #fff;
@@ -182,8 +183,49 @@
         box-shadow: 0 0 0 0 transparent;
         font-family: "Arial Regular", "Open Sans", Arial, sans-serif;
         transition: background .2s linear,box-shadow .2s linear;
-      }
-    </style>
+    }
+
+    .button-back span {
+        background-color: white;
+        border-color: #34AED8;
+        color: #34AED8;
+        border: 3px solid currentColor;
+        font-weight: 700;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 1em;
+        text-decoration: none;
+        padding: 9px 24px;
+        cursor: pointer;
+        box-shadow: 0 0 0 0 transparent;
+        font-family: "Arial Regular", "Open Sans", Arial, sans-serif;
+        transition: background .2s linear,box-shadow .2s linear;
+    }
+
+    #appointment-form input {
+        text-transform: none;
+        font: inherit;
+        margin: 0;
+        border: 1px solid #F6F6F6;
+        min-height: 38px;
+        width: 100%;
+        padding: 0 .8125em;
+        overflow: hidden;
+        background-color: #F6F6F6;
+        box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+        border-radius: 3px;
+        outline: 0;
+        vertical-align: top;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        font-family: "Arial Regular", "Open Sans", "Arial", "sans-serif";
+        color: #545B60;
+        text-align: left;
+    }
+  </style>
   </head>
   <body>
     <amp-analytics type="googleanalytics" id="analytics-ga">
@@ -349,17 +391,41 @@
             </section>
         </section>        
         <section id="leaseOverview">
-            <div on="tap:pricingOptions.hide" class="button-orange">                
-                Aanvragen via de dealer                
+            <section id="dealerAppointment">
+                <h2>Private Lease overzicht</h2>
+                <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast! Sla het overzicht op om je gekozen auto later nog eens te bekijken.</p>
+                <form method="post"
+                      action-xhr="/api/carDealers/appointment"
+                      target="_top">
+                    <fieldset>
+                        <p>Aanhef</p>
+                        <label>
+                            <input name="Aanhef"
+                                   value="Dhr."
+                                   type="radio">Dhr.
+                        </label>
+                        <label>
+                            <input name="Aanhef"
+                                   value="Mevr."
+                                   type="radio">Mevr.
+                        </label>
+                        <label><span>Voornaam</span></label>
+                        <input type="text"
+                               name="firstName"
+                               id="firstName">
+                    </fieldset>
+
+                </form>
+            </section>
+            <section id="pricingOverview"></section>
+            <div on="tap:pricingOptions.hide"  role="button" tabindex="1" class="button-orange">                
+                <span>Aanvragen via de dealer</span>                
             </div>
-            <div on="tap:pricingOptions.hide" class="button-orange">
-                Terug
+            <div on="tap:pricingOptions.show" role="button" tabindex="2" class="button-back">
+                <span>Terug</span>
             </div>
         </section>
     </main>
-    <footer>
-      
-    </footer>
   </body>
   <amp-state id="props">
     <script type="application/json">
@@ -418,7 +484,4 @@
       }
     </script>
   </amp-state>
-  <!--<amp-state id="dealersSites"
-             src="https://www.autoabonnement.nl/api/DealerLocator?action=getnearestdealersites&Brands=942ee7b6-ef6d-48c2-a531-67f23b990320&Services=&SearchQuery=Utrecht&Amount=1000">
-  </amp-state>-->
 </html>
