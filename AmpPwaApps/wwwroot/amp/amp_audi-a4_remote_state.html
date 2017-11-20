@@ -382,11 +382,12 @@
                 </div>
             </section>
             <section class="container">
-                <div class="button-orange">
-                    <a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=24-maanden&Mileage=10-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi"
+                <div class="button-orange" on="tap:leaseOverview.hide"  role="button" tabindex="1">
+                    <span>Kies deze uitvoering</span>
+                    <!--<a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=24-maanden&Mileage=10-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi"
                        [href]="'https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=' + (selectedDuration || '24') + '-maanden&Mileage=' + ((selectedKilometrage / 1000) || 10) + '-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=' + (props[currentColour].id || props[props.defaultColour].id) + '&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi'" target="_self">
                         Kies deze uitvoering
-                    </a>
+                    </a>-->
                 </div>
             </section>
         </section>        
@@ -397,7 +398,7 @@
                 <form method="post"
                       action-xhr="/api/carDealers/appointment"
                       target="_top">
-                    <fieldset>
+                    
                         <p>Aanhef</p>
                         <label>
                             <input name="Aanhef"
@@ -408,12 +409,35 @@
                             <input name="Aanhef"
                                    value="Mevr."
                                    type="radio">Mevr.
-                        </label>
-                        <label><span>Voornaam</span></label>
+                        </label>                        
                         <input type="text"
                                name="firstName"
-                               id="firstName">
-                    </fieldset>
+                               id="firstName"
+                               placeholder="Voornam">
+                        <input type="text"
+                               name="mainText"
+                               id="mainText"
+                               placeholder="Tussenvoegsel">
+                        <input type="text"
+                               name="lastName"
+                               id="lastName"
+                               placeholder="Achternaam">
+                        <input type="text"
+                               name="email"
+                               id="email"
+                               placeholder="Email">
+                        <input type="text"
+                               name="postCode"
+                               id="postCode"
+                               placeholder="Postcode">
+                        <input type="text"
+                               name="houseNumber"
+                               id="houseNumber"
+                               placeholder="Huisnummer">
+                        <input type="text"
+                               name="additiveText"
+                               id="additiveText"
+                               placeholder="Toevoeging">
 
                 </form>
             </section>
