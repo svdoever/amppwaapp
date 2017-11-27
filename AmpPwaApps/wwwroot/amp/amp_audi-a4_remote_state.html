@@ -448,17 +448,18 @@
                         <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
                             <span>Aanvragen via de dealer</span>
                         </div>
+                        <div submit-success>
+                            <template type="amp-mustache">
+                                Appointment was arranged!
+                            </template>
+                        </div>
+                        <div submit-error>
+                            <template type="amp-mustache">
+                                An error occured while arranging an appointment
+                            </template>
+                        </div>
                 </form>
-                <div submit-succes>
-                    <template type="amp-mustache">
-                        Appointment was arranged!
-                    </template>                   
-                </div>
-                <div submit-error>
-                    <template type="amp-mustache">
-                        An error occured while arranging an appointment
-                    </template>                    
-                </div>
+                
             </section>
             <section id="pricingOverview"></section>
             <div on="tap:AMP.setState({ props: { appointmentFormVisible: false }})" role="button" tabindex="2" class="button-back">
@@ -524,5 +525,8 @@
         "totalLeasePrice": 869.02
       }
     </script>
+  </amp-state>
+  <amp-state id="carDealers"
+             src="/api/carDealers">   
   </amp-state>
 </html>

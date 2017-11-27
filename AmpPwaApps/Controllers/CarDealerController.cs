@@ -13,5 +13,11 @@ namespace AmpPwaApps.Controllers
             //TO DO: send an appointment via email
             return new NotFoundResult();
         }
+
+        [HttpGet]
+        public IActionResult GetCarDealers()
+        {
+            return new JsonResult(CarDealersDatabase.CarDealers);
+        }
     }
 }

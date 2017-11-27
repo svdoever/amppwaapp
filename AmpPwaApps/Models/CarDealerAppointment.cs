@@ -20,6 +20,7 @@
         public string PostCode { get; set; }
         //huisnummer
         public string HouseNumber { get; set; }
+        public string DealerName { get; set; }
 
     }
 }
