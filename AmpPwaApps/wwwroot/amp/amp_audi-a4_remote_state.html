@@ -225,6 +225,12 @@
         color: #545B60;
         text-align: left;
     }
+    .hide {
+        display:none;
+    }
+    .show {
+        display:block;
+    }
   </style>
   </head>
   <body>
@@ -255,7 +261,7 @@
     </header>
     <main>
       <hr>
-        <section id="pricingOptions">
+        <section id="pricingOptions" class="show" [class]="!props.appointmentFormVisible ? 'show' : 'hide'">
             <section class="container">
                 <h1 class="title-font">Gaudi A4 Limousine</h1>
             </section>
@@ -382,7 +388,7 @@
                 </div>
             </section>
             <section class="container">
-                <div class="button-orange" on="tap:leaseOverview.hide"  role="button" tabindex="1">
+                <div class="button-orange" on="tap:AMP.setState({props: {appointmentFormVisible: true}})"  role="button" tabindex="1">
                     <span>Kies deze uitvoering</span>
                     <!--<a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=24-maanden&Mileage=10-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi"
                        [href]="'https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=' + (selectedDuration || '24') + '-maanden&Mileage=' + ((selectedKilometrage / 1000) || 10) + '-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=' + (props[currentColour].id || props[props.defaultColour].id) + '&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi'" target="_self">
@@ -391,7 +397,7 @@
                 </div>
             </section>
         </section>        
-        <section id="leaseOverview">
+        <section id="leaseOverview" class="hide" [class]="props.appointmentFormVisible ? 'show' : 'hide'">
             <section id="dealerAppointment">
                 <h2>Private Lease overzicht</h2>
                 <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast! Sla het overzicht op om je gekozen auto later nog eens te bekijken.</p>
@@ -438,14 +444,13 @@
                                name="additiveText"
                                id="additiveText"
                                placeholder="Toevoeging">
-
                 </form>
             </section>
             <section id="pricingOverview"></section>
-            <div on="tap:pricingOptions.hide"  role="button" tabindex="1" class="button-orange">                
+            <div on="tap:AMP.setState({props: {appointmentFormVisible:true}})" role="button" tabindex="1" class="button-orange">                
                 <span>Aanvragen via de dealer</span>                
             </div>
-            <div on="tap:pricingOptions.show" role="button" tabindex="2" class="button-back">
+            <div on="tap: AMP.setState({ props: { appointmentFormVisible: false }})" role="button" tabindex="2" class="button-back">
                 <span>Terug</span>
             </div>
         </section>
@@ -456,6 +461,7 @@
       {
         "basePrice": 595,
         "finalPrice": 595,
+        "appointmentFormVisible": false,
         "defaultColour": "tangoroodMetallic",
         "tangoroodMetallic": {
           "id": "8a0f36a1-bc79-4813-b82c-699c00fc6e82",
