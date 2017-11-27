@@ -43,6 +43,7 @@
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -401,10 +402,10 @@
             <section id="dealerAppointment">
                 <h2>Private Lease overzicht</h2>
                 <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast! Sla het overzicht op om je gekozen auto later nog eens te bekijken.</p>
-                <form method="post"
+                <form id="appointment-form"
+                      method="post"
                       action-xhr="/api/carDealers/appointment"
-                      target="_top">
-                    
+                      target="_top">            
                         <p>Aanhef</p>
                         <label>
                             <input name="Aanhef"
@@ -443,14 +444,24 @@
                         <input type="text"
                                name="additiveText"
                                id="additiveText"
-                               placeholder="Toevoeging">
+                               placeholder="Toevoeging">                  
+                        <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
+                            <span>Aanvragen via de dealer</span>
+                        </div>
                 </form>
+                <div submit-succes>
+                    <template type="amp-mustache">
+                        Appointment was arranged!
+                    </template>                   
+                </div>
+                <div submit-error>
+                    <template type="amp-mustache">
+                        An error occured while arranging an appointment
+                    </template>                    
+                </div>
             </section>
             <section id="pricingOverview"></section>
-            <div on="tap:AMP.setState({props: {appointmentFormVisible:true}})" role="button" tabindex="1" class="button-orange">                
-                <span>Aanvragen via de dealer</span>                
-            </div>
-            <div on="tap: AMP.setState({ props: { appointmentFormVisible: false }})" role="button" tabindex="2" class="button-back">
+            <div on="tap:AMP.setState({ props: { appointmentFormVisible: false }})" role="button" tabindex="2" class="button-back">
                 <span>Terug</span>
             </div>
         </section>
