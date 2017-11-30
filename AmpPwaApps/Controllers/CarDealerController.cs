@@ -1,6 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using AmpPwaApps.Models;
 using System.Collections.Generic;
+using AmpPwaApps.Utils.Email;
+using AmpPwaApps.Utils;
+using System;
+using System.Net.Http;
+using System.Net;
 
 namespace AmpPwaApps.Controllers
 {
@@ -11,8 +16,26 @@ namespace AmpPwaApps.Controllers
         [HttpPost("appointment")]
         public IActionResult ArrangeAppointment(CarDealerAppointment carDealerAppointment)
         {
-            //TO DO: send an appointment via email
-            return new NotFoundResult();
+            try
+            {
+                var emailSettings = new EmailSettings
+                {
+                    FromAddress = "macaw.amp.sender@gmail.com",
+                    FromAdressTitle = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
+                    ToAddress = carDealerAppointment.Email ?? "julius.mazionis@macaw.nl",
+                    ToAddressTitle = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
+                    Subject = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
+                    BodyContent = $"{carDealerAppointment.GreetingPrefix ?? ""} {carDealerAppointment.FirstName} {carDealerAppointment.LastName} an appointment was arranged with {carDealerAppointment.DealerName}!",
+                    SmtpServer = "smtp.gmail.com",
+                    SmtpPortNumber = 587
+                };
+                EmailSender.SendEmail(emailSettings);
+                return Ok("Appointment was successfully arranged!");
+            }
+            catch (Exception)
+            {
+                return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status500InternalServerError, "There was an error while sending the email");
+            }                  
         }
 
         [HttpGet]
