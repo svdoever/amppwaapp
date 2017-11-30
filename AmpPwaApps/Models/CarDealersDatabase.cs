@@ -6,10 +6,10 @@ namespace AmpPwaApps.Models
 {
     public static class CarDealersDatabase
     {
-        public static IEnumerable<string> CarDealers { get; set; }
+        public static List<string> CarDealerNames { get; set; }
         static CarDealersDatabase()
         {
-            CarDealers = new List<string>
+            CarDealerNames = new List<string>
             {
               "Muntstad Utrecht",
               "Maas Autogroep Uithoorn",
@@ -49,8 +49,7 @@ namespace AmpPwaApps.Models
               "Autoland Van den Brug",
               "Bourguignon",
               "Century Autogroep",
-              "Wealer",
-              "Century Autogroep"
+              "Wealer"
             };
         }
     }

@@ -245,4 +245,13 @@ namespace AmpPwaApps.Models
     {
         public List<T> Items { get; set; }
     }
+
+    public class CarDealer
+    {
+        public CarDealer()
+        {
+            DealerNames = CarDealersDatabase.CarDealerNames;
+        }
+        public List<string> DealerNames { get; set; }
+    }
 }

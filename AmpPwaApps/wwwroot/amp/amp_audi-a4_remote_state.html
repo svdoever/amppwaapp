@@ -44,6 +44,8 @@
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -444,7 +446,15 @@
                         <input type="text"
                                name="additiveText"
                                id="additiveText"
-                               placeholder="Toevoeging">                  
+                               placeholder="Toevoeging">   
+                        <amp-list src="/api/carDealers" width="auto" height="30px" layout="fixed-height">
+                          <template type="amp-mustache">
+                              <select id="dealerName" name="dealerName">
+                                  <option value="">Selecteer een dealer</option>
+                                  {{#dealerNames}}<option value="{{.}}">{{.}}</option>{{/dealerNames}}
+                              </select>
+                          </template>
+                        </amp-list>
                         <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
                             <span>Aanvragen via de dealer</span>
                         </div>

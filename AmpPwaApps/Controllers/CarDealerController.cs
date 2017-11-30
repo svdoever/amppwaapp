@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using AmpPwaApps.Models;
+using System.Collections.Generic;
 
 namespace AmpPwaApps.Controllers
 {
@@ -17,7 +18,10 @@ namespace AmpPwaApps.Controllers
         [HttpGet]
         public IActionResult GetCarDealers()
         {
-            return new JsonResult(CarDealersDatabase.CarDealers);
+            var itemContainer = new ItemContainer<CarDealer>();
+            var carDealers = new List<CarDealer> { new CarDealer() };
+            itemContainer.Items = carDealers;
+            return new JsonResult(itemContainer);
         }
     }
 }
