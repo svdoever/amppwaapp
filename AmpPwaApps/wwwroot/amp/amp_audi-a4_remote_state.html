@@ -45,7 +45,6 @@
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
     <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <style amp-custom>
       header {
         margin: 20px 0;
@@ -207,7 +206,34 @@
         transition: background .2s linear,box-shadow .2s linear;
     }
 
-    #appointment-form input {
+        #dealerAppointment, #dealerName {
+            font-family: "Arial Regular", "Open Sans", "Arial", "sans-serif";
+            color: #545B60;
+        }
+
+        #dealerName {
+            text-transform: none;
+            font: inherit;
+            margin: 0;
+            border: 1px solid #F6F6F6;
+            min-height: 38px;
+            width: 100%;
+            padding: 0 .8125em;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+            background-color: #F6F6F6;
+            border-radius: 3px;
+            outline: 0;
+            vertical-align: top;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            text-align: left;
+            width: 100%;
+        }
+
+    #appointment-form input[type=text] {
+        display: block;
         text-transform: none;
         font: inherit;
         margin: 0;
@@ -223,14 +249,24 @@
         vertical-align: top;
         -moz-appearance: none;
         -webkit-appearance: none;
-        appearance: none;
-        font-family: "Arial Regular", "Open Sans", "Arial", "sans-serif";
-        color: #545B60;
-        text-align: left;
+        appearance: none;        
+        text-align: left;        
+        width: 100%;
     }
-    .hide {
-        display:none;
-    }
+        #appointment-form select {
+            display: block;
+            margin: auto;
+            width: 250px;
+            background-image: linear-gradient(45deg,transparent 50%,#d3d3d3 0),linear-gradient(135deg,#d3d3d3 50%,transparent 0),linear-gradient(90deg,#ccc,#ccc);
+            background-position: calc(100% - 30px) calc(1em + 0px),calc(100% - 20px) calc(1em + 0px),calc(100% - 2.5em) .5em;
+            background-size: 11px 11px,11px 11px,4px 0;
+            background-repeat: no-repeat;
+        }
+        #appointment-form .dealer-info-field {
+            margin: 0 auto;
+            width: 250px;           
+            margin-bottom: 20px;
+        }
     .show {
         display:block;
     }
@@ -402,51 +438,71 @@
         </section>        
         <section id="leaseOverview" class="hide" [class]="props.appointmentFormVisible ? 'show' : 'hide'">
             <section id="dealerAppointment">
-                <h2>Private Lease overzicht</h2>
-                <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast! Sla het overzicht op om je gekozen auto later nog eens te bekijken.</p>
+                <div class="dealer-info-field">
+                    <h2>Private Lease overzicht</h2>
+                    <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast! Sla het overzicht op om je gekozen auto later nog eens te bekijken.</p>
+                </div>                
                 <form id="appointment-form"
                       method="post"
                       action-xhr="/api/carDealers/appointment"
-                      target="_top">            
-                        <p>Aanhef</p>
-                        <label>
-                            <input name="Aanhef"
-                                   value="Dhr."
-                                   type="radio">Dhr.
-                        </label>
-                        <label>
-                            <input name="Aanhef"
-                                   value="Mevr."
-                                   type="radio">Mevr.
-                        </label>                        
-                        <input type="text"
-                               name="firstName"
-                               id="firstName"
-                               placeholder="Voornam">
-                        <input type="text"
-                               name="mainText"
-                               id="mainText"
-                               placeholder="Tussenvoegsel">
-                        <input type="text"
-                               name="lastName"
-                               id="lastName"
-                               placeholder="Achternaam">
-                        <input type="text"
-                               name="email"
-                               id="email"
-                               placeholder="Email">
-                        <input type="text"
-                               name="postCode"
-                               id="postCode"
-                               placeholder="Postcode">
-                        <input type="text"
-                               name="houseNumber"
-                               id="houseNumber"
-                               placeholder="Huisnummer">
-                        <input type="text"
-                               name="additiveText"
-                               id="additiveText"
-                               placeholder="Toevoeging">   
+                      target="_top">          
+                        <div class="dealer-info-field">
+                            <p>Aanhef</p>
+                            <span>
+                                <input name="Aanhef"
+                                       value="Dhr."
+                                       type="radio">Dhr.
+                            </span>
+                            <span>
+                                <input name="Aanhef"
+                                       value="Mevr."
+                                       type="radio">Mevr.
+                            </span>    
+                        </div>                       
+                        <div>
+                            <div class="dealer-info-field">
+                                <input type="text"
+                                       name="firstName"
+                                       id="firstName"
+                                       placeholder="Voornam">
+                            </div>
+                            <div class="dealer-info-field">
+                                <input type="text"
+                                       name="mainText"
+                                       id="mainText"
+                                       placeholder="Tussenvoegsel">
+                            </div>
+                            <div class="dealer-info-field">
+                                <input type="text"
+                                       name="lastName"
+                                       id="lastName"
+                                       placeholder="Achternaam">
+                            </div>
+                            <div class="dealer-info-field">
+                                <input type="text"
+                                       name="email"
+                                       id="email"
+                                       placeholder="Email">
+                            </div>
+                            <div class="dealer-info-field">
+                                <input type="text"
+                                       name="postCode"
+                                       id="postCode"
+                                       placeholder="Postcode">
+                            </div>
+                            <div class="dealer-info-field">
+                                <input type="text"
+                                       name="houseNumber"
+                                       id="houseNumber"
+                                       placeholder="Huisnummer">
+                            </div>
+                            <div class="dealer-info-field">
+                                <input type="text"
+                                       name="additiveText"
+                                       id="additiveText"
+                                       placeholder="Toevoeging">
+                            </div>                                   
+                        </div>                                                                                                                                
                         <amp-list src="/api/carDealers" width="auto" height="30px" layout="fixed-height">
                           <template type="amp-mustache">
                               <select id="dealerName" name="dealerName">
