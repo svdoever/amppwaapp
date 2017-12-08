@@ -150,11 +150,6 @@
       	appearance: none;
       }
 
-      .amount-selector select {
-        width: 150px;
-        border-color: #e1e1e1;
-      }
-
       .total-amount h3 {
         display: inline-block;
         margin-right: 10px;
@@ -211,13 +206,18 @@
             color: #545B60;
         }
 
-        #dealerName {
+        .select-list {
+            display: block;
+            width: 100%;
+            background-image: linear-gradient(45deg,transparent 50%,#d3d3d3 0),linear-gradient(135deg,#d3d3d3 50%,transparent 0),linear-gradient(90deg,#ccc,#ccc);
+            background-position: calc(100% - 30px) calc(1em + 0px),calc(100% - 20px) calc(1em + 0px),calc(100% - 2.5em) .5em;
+            background-size: 11px 11px,11px 11px,4px 0;
+            background-repeat: no-repeat;
+            padding: 0 .8125em;
             text-transform: none;
             font: inherit;
-            margin: 0;
             border: 1px solid #F6F6F6;
-            min-height: 38px;
-            width: 100%;
+            min-height: 38px;        
             padding: 0 .8125em;
             overflow: hidden;
             box-shadow: 0 0 0 1px rgba(0,0,0,.1);
@@ -229,8 +229,14 @@
             -webkit-appearance: none;
             appearance: none;
             text-align: left;
-            width: 100%;
+            font-family: "Arial Regular", "Open Sans", "Arial", "sans-serif";
+            color: #545B60;
         }
+
+    div[submit-success] {
+        color: limegreen;
+        font: inherit;
+    }
 
     #appointment-form input[type=text] {
         display: block;
@@ -250,25 +256,21 @@
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;        
-        text-align: left;        
-        width: 100%;
+        text-align: left;               
     }
-        #appointment-form select {
-            display: block;
-            margin: auto;
-            width: 250px;
-            background-image: linear-gradient(45deg,transparent 50%,#d3d3d3 0),linear-gradient(135deg,#d3d3d3 50%,transparent 0),linear-gradient(90deg,#ccc,#ccc);
-            background-position: calc(100% - 30px) calc(1em + 0px),calc(100% - 20px) calc(1em + 0px),calc(100% - 2.5em) .5em;
-            background-size: 11px 11px,11px 11px,4px 0;
-            background-repeat: no-repeat;
-        }
-        #appointment-form .dealer-info-field {
+       
+        #appointment-form .dealer-info-field, #dealerAppointment .dealer-info-field {
             margin: 0 auto;
             width: 250px;           
-            margin-bottom: 20px;
+            margin-bottom: 20px;           
         }
+
     .show {
         display:block;
+    }
+
+    .hide {
+        display: none;
     }
   </style>
   </head>
@@ -392,7 +394,7 @@
                     <h3 class="title-font">
                         Kilometers per jaar
                     </h3>
-                    <select on="change:AMP.setState({
+                    <select class="select-list" on="change:AMP.setState({
                                               kilometrage: event.value,
                                               selectedKilometrage: event.value
                                            })">
@@ -407,7 +409,7 @@
                     <h3 class="title-font">
                         Looptijd
                     </h3>
-                    <select on="change:AMP.setState({
+                    <select class="select-list" on="change:AMP.setState({
                                               durationCoefficient: event.value,
                                               selectedDuration: event.value
                                             })">
@@ -459,67 +461,71 @@
                                        type="radio">Mevr.
                             </span>    
                         </div>                       
-                        <div>
-                            <div class="dealer-info-field">
-                                <input type="text"
-                                       name="firstName"
-                                       id="firstName"
-                                       placeholder="Voornam">
-                            </div>
-                            <div class="dealer-info-field">
-                                <input type="text"
-                                       name="mainText"
-                                       id="mainText"
-                                       placeholder="Tussenvoegsel">
-                            </div>
-                            <div class="dealer-info-field">
-                                <input type="text"
-                                       name="lastName"
-                                       id="lastName"
-                                       placeholder="Achternaam">
-                            </div>
-                            <div class="dealer-info-field">
-                                <input type="text"
-                                       name="email"
-                                       id="email"
-                                       placeholder="Email">
-                            </div>
-                            <div class="dealer-info-field">
-                                <input type="text"
-                                       name="postCode"
-                                       id="postCode"
-                                       placeholder="Postcode">
-                            </div>
-                            <div class="dealer-info-field">
-                                <input type="text"
-                                       name="houseNumber"
-                                       id="houseNumber"
-                                       placeholder="Huisnummer">
-                            </div>
-                            <div class="dealer-info-field">
-                                <input type="text"
-                                       name="additiveText"
-                                       id="additiveText"
-                                       placeholder="Toevoeging">
-                            </div>                                   
-                        </div>                                                                                                                                
-                        <amp-list src="/api/carDealers" width="auto" height="30px" layout="fixed-height">
-                          <template type="amp-mustache">
-                              <select id="dealerName" name="dealerName">
-                                  <option value="">Selecteer een dealer</option>
-                                  {{#dealerNames}}<option value="{{.}}">{{.}}</option>{{/dealerNames}}
-                              </select>
-                          </template>
-                        </amp-list>
+                       
+                        <div class="dealer-info-field">
+                            <input type="text"
+                                    name="firstName"
+                                    id="firstName"
+                                    placeholder="Voornam">
+                        </div>
+                        <div class="dealer-info-field">
+                            <input type="text"
+                                    name="mainText"
+                                    id="mainText"
+                                    placeholder="Tussenvoegsel">
+                        </div>
+                        <div class="dealer-info-field">
+                            <input type="text"
+                                    name="lastName"
+                                    id="lastName"
+                                    placeholder="Achternaam">
+                        </div>
+                        <div class="dealer-info-field">
+                            <input type="text"
+                                    name="email"
+                                    id="email"
+                                    placeholder="Email">
+                        </div>
+                        <div class="dealer-info-field">
+                            <input type="text"
+                                    name="postCode"
+                                    id="postCode"
+                                    placeholder="Postcode">
+                        </div>
+                        <div class="dealer-info-field">
+                            <input type="text"
+                                    name="houseNumber"
+                                    id="houseNumber"
+                                    placeholder="Huisnummer">
+                        </div>
+                        <div class="dealer-info-field">
+                            <input type="text"
+                                    name="additiveText"
+                                    id="additiveText"
+                                    placeholder="Toevoeging">
+                        </div>     
+                        <div class="dealer-info-field">
+                            <amp-list src="/api/carDealers" width="auto" height="38px" layout="fixed-height">
+                                <template type="amp-mustache">
+                                    <select id="dealerName" name="dealerName" class="select-list">
+                                        <option value="">Selecteer een dealer</option>
+                                        {{#dealerNames}}
+                                            <option value="{{.}}">{{.}}</option>
+                                        {{/dealerNames}}
+                                    </select>
+                                </template>
+                            </amp-list>
+                        </div>                                                                                                                                                
+                        
                         <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
                             <span>Aanvragen via de dealer</span>
                         </div>
-                        <div submit-success>
+                        <div submit-success class="dealer-info-field">
                             <template type="amp-mustache">
                                 Appointment was arranged!
                             </template>
                         </div>
-                        <div submit-error>
+                        <div submit-error class="dealer-info-field">
                             <template type="amp-mustache">
                                 An error occured while arranging an appointment
                             </template>

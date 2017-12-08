@@ -18,19 +18,26 @@ namespace AmpPwaApps.Controllers
         {
             try
             {
-                var emailSettings = new EmailSettings
+                if (ModelState.IsValid)
                 {
-                    FromAddress = "macaw.amp.sender@gmail.com",
-                    FromAdressTitle = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
-                    ToAddress = carDealerAppointment.Email ?? "julius.mazionis@macaw.nl",
-                    ToAddressTitle = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
-                    Subject = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
-                    BodyContent = $"{carDealerAppointment.GreetingPrefix ?? ""} {carDealerAppointment.FirstName} {carDealerAppointment.LastName} an appointment was arranged with {carDealerAppointment.DealerName}!",
-                    SmtpServer = "smtp.gmail.com",
-                    SmtpPortNumber = 587
-                };
-                EmailSender.SendEmail(emailSettings);
-                return Ok("Appointment was successfully arranged!");
+                    var emailSettings = new EmailSettings
+                    {
+                        FromAddress = "macaw.amp.sender@gmail.com",
+                        FromAdressTitle = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
+                        ToAddress = carDealerAppointment.Email ?? "julius.mazionis@macaw.nl",
+                        ToAddressTitle = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
+                        Subject = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
+                        BodyContent = $"{carDealerAppointment.GreetingPrefix ?? ""} {carDealerAppointment.FirstName} {carDealerAppointment.LastName} an appointment was arranged with {carDealerAppointment.DealerName}!",
+                        SmtpServer = "smtp.gmail.com",
+                        SmtpPortNumber = 587
+                    };
+                    EmailSender.SendEmail(emailSettings);
+                    return Ok("Appointment was successfully arranged!");
+                }
+                else
+                {
+                    return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status500InternalServerError, "There was an error while sending the email");
+                }
             }
             catch (Exception)
             {
