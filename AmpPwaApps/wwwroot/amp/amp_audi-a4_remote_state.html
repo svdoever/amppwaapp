@@ -217,8 +217,7 @@
             text-transform: none;
             font: inherit;
             border: 1px solid #F6F6F6;
-            min-height: 38px;        
-            padding: 0 .8125em;
+            min-height: 38px;                   
             overflow: hidden;
             box-shadow: 0 0 0 1px rgba(0,0,0,.1);
             background-color: #F6F6F6;
@@ -238,7 +237,7 @@
         font: inherit;
     }
 
-    #appointment-form input[type=text] {
+    #appointment-form input[type=text], #appointment-form input[type=email] {
         display: block;
         text-transform: none;
         font: inherit;
@@ -246,7 +245,6 @@
         border: 1px solid #F6F6F6;
         min-height: 38px;
         width: 100%;
-        padding: 0 .8125em;
         overflow: hidden;
         background-color: #F6F6F6;
         box-shadow: 0 0 0 1px rgba(0,0,0,.1);
@@ -255,15 +253,31 @@
         vertical-align: top;
         -moz-appearance: none;
         -webkit-appearance: none;
-        appearance: none;        
-        text-align: left;               
+        appearance: none;
+        text-align: left;
     }
        
-        #appointment-form .dealer-info-field, #dealerAppointment .dealer-info-field {
-            margin: 0 auto;
-            width: 250px;           
-            margin-bottom: 20px;           
-        }
+    .dealer-info-field {          
+        margin-bottom: 20px;           
+    }
+
+    .dealer-info-field input::-webkit-input-placeholder { /* WebKit browsers */
+        padding-left: 10px;
+    }
+
+    .dealer-info-field input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        padding-left: 10px;
+        opacity: 1;
+    }
+
+    .dealer-info-field input::-moz-placeholder { /* Mozilla Firefox 19+ */
+        padding-left: 10px;
+        opacity: 1;
+    }
+
+    .dealer-info-field input:-ms-input-placeholder { /* Internet Explorer 10+ */
+        padding-left: 10px;
+    }
 
     .show {
         display:block;
@@ -271,6 +285,10 @@
 
     .hide {
         display: none;
+    }
+
+    .error-container {
+        margin-top: 5px;       
     }
   </style>
   </head>
@@ -437,106 +455,106 @@
                     </a>-->
                 </div>
             </section>
-        </section>        
-        <section id="leaseOverview" class="hide" [class]="props.appointmentFormVisible ? 'show' : 'hide'">
-            <section id="dealerAppointment">
+        </section>  
+        <section id="dealerAppointment" class="hide container" [class]="props.appointmentFormVisible ? 'show container' : 'hide container'">                            
+            <div class="dealer-info-field">
+                <h2>Private Lease overzicht</h2>
+                <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast! Sla het overzicht op om je gekozen auto later nog eens te bekijken.</p>
+            </div>
+            <form id="appointment-form"
+                    method="post"
+                    action-xhr="/api/carDealers/appointment"
+                    custom-validation-reporting="show-all-on-submit"
+                    target="_top">
                 <div class="dealer-info-field">
-                    <h2>Private Lease overzicht</h2>
-                    <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast! Sla het overzicht op om je gekozen auto later nog eens te bekijken.</p>
-                </div>                
-                <form id="appointment-form"
-                      method="post"
-                      action-xhr="/api/carDealers/appointment"
-                      target="_top">          
-                        <div class="dealer-info-field">
-                            <p>Aanhef</p>
-                            <span>
-                                <input name="Aanhef"
-                                       value="Dhr."
-                                       type="radio">Dhr.
-                            </span>
-                            <span>
-                                <input name="Aanhef"
-                                       value="Mevr."
-                                       type="radio">Mevr.
-                            </span>    
-                        </div>                       
-                       
-                        <div class="dealer-info-field">
-                            <input type="text"
-                                    name="firstName"
-                                    id="firstName"
-                                    placeholder="Voornam">
-                        </div>
-                        <div class="dealer-info-field">
-                            <input type="text"
-                                    name="mainText"
-                                    id="mainText"
-                                    placeholder="Tussenvoegsel">
-                        </div>
-                        <div class="dealer-info-field">
-                            <input type="text"
-                                    name="lastName"
-                                    id="lastName"
-                                    placeholder="Achternaam">
-                        </div>
-                        <div class="dealer-info-field">
-                            <input type="text"
-                                    name="email"
-                                    id="email"
-                                    placeholder="Email">
-                        </div>
-                        <div class="dealer-info-field">
-                            <input type="text"
-                                    name="postCode"
-                                    id="postCode"
-                                    placeholder="Postcode">
-                        </div>
-                        <div class="dealer-info-field">
-                            <input type="text"
-                                    name="houseNumber"
-                                    id="houseNumber"
-                                    placeholder="Huisnummer">
-                        </div>
-                        <div class="dealer-info-field">
-                            <input type="text"
-                                    name="additiveText"
-                                    id="additiveText"
-                                    placeholder="Toevoeging">
-                        </div>     
-                        <div class="dealer-info-field">
-                            <amp-list src="/api/carDealers" width="auto" height="38px" layout="fixed-height">
-                                <template type="amp-mustache">
-                                    <select id="dealerName" name="dealerName" class="select-list">
-                                        <option value="">Selecteer een dealer</option>
-                                        {{#dealerNames}}
-                                            <option value="{{.}}">{{.}}</option>
-                                        {{/dealerNames}}
-                                    </select>
-                                </template>
-                            </amp-list>
-                        </div>                                                                                                                                                
-                        
-                        <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
-                            <span>Aanvragen via de dealer</span>
-                        </div>
-                        <div submit-success class="dealer-info-field">
-                            <template type="amp-mustache">
-                                Appointment was arranged!
-                            </template>
-                        </div>
-                        <div submit-error class="dealer-info-field">
-                            <template type="amp-mustache">
-                                An error occured while arranging an appointment
-                            </template>
-                        </div>
-                </form>
+                    <p>Aanhef</p>
+                    <span>
+                        <input name="Aanhef"
+                                value="Dhr."
+                                type="radio">Dhr.
+                    </span>
+                    <span>
+                        <input name="Aanhef"
+                                value="Mevr."
+                                type="radio">Mevr.
+                    </span>
+                </div>
+
+                <div class="dealer-info-field">
+                    <input type="text"
+                            name="firstName"
+                            id="firstName"
+                            placeholder="Voornam">
+                </div>
+                <div class="dealer-info-field">
+                    <input type="text"
+                            name="mainText"
+                            id="mainText"
+                            placeholder="Tussenvoegsel">
+                </div>
+                <div class="dealer-info-field">
+                    <input type="text"
+                            name="lastName"
+                            id="lastName"
+                            placeholder="Achternaam">
+                </div>
+                <div class="dealer-info-field">
+                    <input type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Email"
+                            required>
+                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="email"></div>
+                    <div class="error-container" visible-when-invalid="typeMismatch" validation-for="email"></div>
+                </div>
+                <div class="dealer-info-field">
+                    <input type="text"
+                            name="postCode"
+                            id="postCode"
+                            placeholder="Postcode">
+                </div>
+                <div class="dealer-info-field">
+                    <input type="text"
+                            name="houseNumber"
+                            id="houseNumber"
+                            placeholder="Huisnummer">
+                </div>
+                <div class="dealer-info-field">
+                    <input type="text"
+                            name="additiveText"
+                            id="additiveText"
+                            placeholder="Toevoeging">
+                </div>
                 
-            </section>
-            <section id="pricingOverview"></section>
+                    <amp-list src="/api/carDealers" width="auto" height="38px" layout="fixed-height">
+                        <template type="amp-mustache">
+                            <select id="dealerName" name="dealerName" class="select-list">
+                                <option value="">Selecteer een dealer</option>
+                                {{#dealerNames}}
+                                <option value="{{.}}">{{.}}</option>
+                                {{/dealerNames}}
+                            </select>
+                        </template>
+                    </amp-list>
+                
+
+                <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
+                    <span>Aanvragen via de dealer</span>
+                </div>
+                <div submit-success class="dealer-info-field">
+                    <template type="amp-mustache">
+                        Appointment was arranged!
+                    </template>
+                </div>
+                <div submit-error class="dealer-info-field">
+                    <template type="amp-mustache">
+                        An error occured while arranging an appointment
+                    </template>
+                </div>
+            </form>          
             <div on="tap:AMP.setState({ props: { appointmentFormVisible: false }})" role="button" tabindex="2" class="button-back">
                 <span>Terug</span>
-            </div>
+            </div>           
         </section>
     </main>
   </body>
