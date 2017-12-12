@@ -232,8 +232,9 @@
             color: #545B60;
         }
 
-    div[submit-success] {
-        color: limegreen;
+    div[visible-when-invalid].visible {
+        margin-top: 10px;
+        display: block;
         font: inherit;
     }
 
@@ -241,7 +242,7 @@
         display: block;
         text-transform: none;
         font: inherit;
-        margin: 0;
+        margin: 0px;
         border: 1px solid #F6F6F6;
         min-height: 38px;
         width: 100%;
@@ -255,28 +256,12 @@
         -webkit-appearance: none;
         appearance: none;
         text-align: left;
+        padding-left: 10px;
     }
        
     .dealer-info-field {          
-        margin-bottom: 20px;           
-    }
-
-    .dealer-info-field input::-webkit-input-placeholder { /* WebKit browsers */
-        padding-left: 10px;
-    }
-
-    .dealer-info-field input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-        padding-left: 10px;
-        opacity: 1;
-    }
-
-    .dealer-info-field input::-moz-placeholder { /* Mozilla Firefox 19+ */
-        padding-left: 10px;
-        opacity: 1;
-    }
-
-    .dealer-info-field input:-ms-input-placeholder { /* Internet Explorer 10+ */
-        padding-left: 10px;
+        margin-bottom: 20px;  
+        margin-right: 10px;
     }
 
     .show {
@@ -288,6 +273,7 @@
     }
 
     .error-container {
+        display: block;
         margin-top: 5px;       
     }
   </style>
@@ -484,7 +470,9 @@
                     <input type="text"
                             name="firstName"
                             id="firstName"
-                            placeholder="Voornam">
+                            placeholder="Voornam"
+                            required>
+                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="firstName"></div>                    
                 </div>
                 <div class="dealer-info-field">
                     <input type="text"
@@ -496,7 +484,9 @@
                     <input type="text"
                             name="lastName"
                             id="lastName"
-                            placeholder="Achternaam">
+                            placeholder="Achternaam"
+                            required>
+                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="lastName"></div>
                 </div>
                 <div class="dealer-info-field">
                     <input type="email"
@@ -528,15 +518,15 @@
                 
                     <amp-list src="/api/carDealers" width="auto" height="38px" layout="fixed-height">
                         <template type="amp-mustache">
-                            <select id="dealerName" name="dealerName" class="select-list">
+                            <select required id="dealerName" name="dealerName" class="select-list">
                                 <option value="">Selecteer een dealer</option>
                                 {{#dealerNames}}
                                 <option value="{{.}}">{{.}}</option>
                                 {{/dealerNames}}
-                            </select>
+                            </select>                            
                         </template>
                     </amp-list>
-                
+                <div class="error-container" visible-when-invalid="valueMissing" validation-for="dealerName"></div>
 
                 <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
                     <span>Aanvragen via de dealer</span>
