@@ -117,17 +117,17 @@
         margin: 10px 0;
       }
 
-      .tangorood-metallic {
-        background-color: rgb(154, 39, 44);
-      }
+        .tangorood-metallic {
+            background-color: #9a272c;
+        }
 
-      .briljantzwart {
-        background-color: rgb(12, 12, 12);
-      }
+        .briljantzwart {
+            background-color: #0c0c0c;
+        }
 
-      .scubablauw-metallic {
-        background-color: rgb(32, 71, 112);
-      }
+        .scubablauw-metallic {
+            background-color: #204770;
+        }
 
       .selected-color-preview {
         height: 40px;
@@ -398,10 +398,7 @@
                     <h3 class="title-font">
                         Kilometers per jaar
                     </h3>
-                    <select class="select-list" on="change:AMP.setState({
-                                              kilometrage: event.value,
-                                              selectedKilometrage: event.value
-                                           })">
+                    <select class="select-list" on="change:AMP.setState({ selectedKilometrage: event.value })">
                         <option selected value=10000 label="10000 km">10000 km</option>
                         <option value=15000 label="15000 km">15000 km</option>
                         <option value=20000 label="20000 km">20000 km</option>
@@ -413,10 +410,7 @@
                     <h3 class="title-font">
                         Looptijd
                     </h3>
-                    <select class="select-list" on="change:AMP.setState({
-                                              durationCoefficient: event.value,
-                                              selectedDuration: event.value
-                                            })">
+                    <select class="select-list" on="change:AMP.setState({ selectedDuration: event.value })">
                         <option selected value=24 label="24 Maanden">24 Maanden</option>
                         <option value=36 label="36 Maanden">36 Maanden</option>
                         <option value=48 label="48 Maanden">48 Maanden</option>
@@ -551,8 +545,6 @@
   <amp-state id="props">
     <script type="application/json">
       {
-        "basePrice": 595,
-        "finalPrice": 595,
         "appointmentFormVisible": false,
         "defaultColour": "tangoroodMetallic",
         "tangoroodMetallic": {
@@ -599,7 +591,7 @@
   </amp-state>
   <amp-state id="leasePriceState" 
              src="https://amppwaapps.azurewebsites.net/api/cars/1ba936c7-0852-4735-b785-9c25dd66f705/kilometrage/10000/duration/24/color/b944e7af-774b-47ed-9349-ec3116a8c417"
-             [src]="'https://amppwaapps.azurewebsites.net/api/cars/1ba936c7-0852-4735-b785-9c25dd66f705/kilometrage/' + (kilometrage || '10000') + '/duration/' + (selectedDuration || '24') + '/color/b944e7af-774b-47ed-9349-ec3116a8c417'">
+             [src]="'https://amppwaapps.azurewebsites.net/api/cars/1ba936c7-0852-4735-b785-9c25dd66f705/kilometrage/' + (selectedKilometrage || '10000') + '/duration/' + (selectedDuration || '24') + '/color/b944e7af-774b-47ed-9349-ec3116a8c417'">
     <script type="application/json">
       {
         "totalLeasePrice": 869.02
