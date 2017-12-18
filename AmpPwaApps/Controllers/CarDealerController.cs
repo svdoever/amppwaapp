@@ -27,11 +27,12 @@ namespace AmpPwaApps.Controllers
                         ToAddress = carDealerAppointment.Email ?? "julius.mazionis@macaw.nl",
                         ToAddressTitle = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
                         Subject = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
-                        BodyContent = $"{carDealerAppointment.GreetingPrefix ?? ""} {carDealerAppointment.FirstName} {carDealerAppointment.LastName} an appointment was arranged with {carDealerAppointment.DealerName}!",
+                        BodyContent = $"{carDealerAppointment.GreetingPrefix ?? ""} {carDealerAppointment.FirstName} {carDealerAppointment.LastName}, an appointment was arranged with {carDealerAppointment.DealerName}!",
                         SmtpServer = "smtp.gmail.com",
                         SmtpPortNumber = 587
                     };
                     EmailSender.SendEmail(emailSettings);
+                    
                     return Ok("Appointment was successfully arranged!");
                 }
                 else
