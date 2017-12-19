@@ -6,6 +6,7 @@ using AmpPwaApps.Utils;
 using System;
 using System.Net.Http;
 using System.Net;
+using Microsoft.AspNetCore.Http;
 
 namespace AmpPwaApps.Controllers
 {
@@ -32,12 +33,14 @@ namespace AmpPwaApps.Controllers
                         SmtpPortNumber = 587
                     };
                     EmailSender.SendEmail(emailSettings);
-                    
-                    return Ok("Appointment was successfully arranged!");
+
+                    Request.HttpContext.Response.Headers.Add("AMP-Access-Control-Allow-Source-Origin", Request.Query["__amp_source_origin"]);
+                    return Ok(new JsonResult(new { Message = "Appointment was successfully arranged!" }));
                 }
                 else
                 {
-                    return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status500InternalServerError, "There was an error while sending the email");
+                    
+                    return StatusCode(StatusCodes.Status500InternalServerError, new JsonResult(new { Message = "There was an error while sending an email" }));
                 }
             }
             catch (Exception)
