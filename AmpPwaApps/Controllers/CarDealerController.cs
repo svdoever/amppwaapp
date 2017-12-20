@@ -7,6 +7,7 @@ using System;
 using System.Net.Http;
 using System.Net;
 using Microsoft.AspNetCore.Http;
+using System.Globalization;
 
 namespace AmpPwaApps.Controllers
 {
@@ -21,6 +22,7 @@ namespace AmpPwaApps.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var dutchCultureInfo = new CultureInfo("nl-NL");
                     var emailSettings = new EmailSettings
                     {
                         FromAddress = "macaw.amp.sender@gmail.com",
@@ -28,7 +30,7 @@ namespace AmpPwaApps.Controllers
                         ToAddress = carDealerAppointment.Email ?? "julius.mazionis@macaw.nl",
                         ToAddressTitle = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
                         Subject = $"Appointment arranged with {carDealerAppointment.DealerName ?? "dealer"}",
-                        BodyContent = $"{carDealerAppointment.GreetingPrefix ?? ""} {carDealerAppointment.FirstName} {carDealerAppointment.LastName}, an appointment was arranged with {carDealerAppointment.DealerName}!",
+                        BodyContent = $"{carDealerAppointment.GreetingPrefix ?? ""} {carDealerAppointment.FirstName} {carDealerAppointment.LastName}, an appointment was arranged with {carDealerAppointment.DealerName} on {carDealerAppointment.AppointmentDate.Date.ToString("d", dutchCultureInfo)}!",
                         SmtpServer = "smtp.gmail.com",
                         SmtpPortNumber = 587
                     };
@@ -45,7 +47,7 @@ namespace AmpPwaApps.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status500InternalServerError, "There was an error while sending the email");
+                return StatusCode(StatusCodes.Status500InternalServerError, "There was an error while sending the email");
             }                  
         }
 

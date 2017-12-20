@@ -250,7 +250,7 @@
         margin-top: 10px;
     } 
 
-    #appointment-form input[type=text], #appointment-form input[type=email] {
+    #appointment-form input[type=text], #appointment-form input[type=email], #appointment-form input[type=date] {
         display: block;
         text-transform: none;
         font: inherit;
@@ -269,6 +269,29 @@
         appearance: none;
         text-align: left;
         padding-left: 10px;
+    }
+
+    #appointmentDate {
+        color: rgb(84, 91, 96);
+        background-image: linear-gradient(45deg,transparent 50%,#d3d3d3 0),linear-gradient(135deg,#d3d3d3 50%,transparent 0),linear-gradient(90deg,#ccc,#ccc);
+        background-position: calc(100% - 30px) calc(1em + 0px),calc(100% - 20px) calc(1em + 0px),calc(100% - 2.5em) .5em;
+        background-size: 11px 11px,11px 11px,4px 0;
+        background-repeat: no-repeat;
+    }
+
+    #appointment-form label{
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .no-spinners {
+        -moz-appearance: textfield;
+    }
+
+    .no-spinners::-webkit-outer-spin-button,
+    .no-spinners::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
        
     .dealer-info-field {          
@@ -451,7 +474,7 @@
         <section id="dealerAppointment" class="hide container" [class]="props.appointmentFormVisible ? 'show container' : 'hide container'">                            
             <div class="dealer-info-field">
                 <h2>Private Lease overzicht</h2>
-                <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast! Sla het overzicht op om je gekozen auto later nog eens te bekijken.</p>
+                <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast!</p>
             </div>
             <form id="appointment-form"
                     method="post"
@@ -473,63 +496,81 @@
                 </div>
 
                 <div class="dealer-info-field">
+                    <label for="firstName">Voornaam</label>
                     <input type="text"
                             name="firstName"
                             id="firstName"
-                            placeholder="Voornam"
+                            placeholder="Voornaam"
                             required>
                     <div class="error-container" visible-when-invalid="valueMissing" validation-for="firstName"></div>                    
                 </div>
                 <div class="dealer-info-field">
+                    <label for="mainText">Tussenvoegsel</label>
                     <input type="text"
-                            name="mainText"
-                            id="mainText"
-                            placeholder="Tussenvoegsel">
+                           name="mainText"
+                           id="mainText"
+                           placeholder="Tussenvoegsel">
                 </div>
                 <div class="dealer-info-field">
+                    <label for="lastName">Achternaam</label>
                     <input type="text"
-                            name="lastName"
-                            id="lastName"
-                            placeholder="Achternaam"
-                            required>
+                           name="lastName"
+                           id="lastName"
+                           placeholder="Achternaam"
+                           required>
                     <div class="error-container" visible-when-invalid="valueMissing" validation-for="lastName"></div>
                 </div>
                 <div class="dealer-info-field">
+                    <label for="email">Email</label>
                     <input type="email"
-                            name="email"
-                            id="email"
-                            placeholder="Email"
-                            required>
+                           name="email"
+                           id="email"
+                           placeholder="Email"
+                           required>
                     <div class="error-container" visible-when-invalid="valueMissing" validation-for="email"></div>
                     <div class="error-container" visible-when-invalid="typeMismatch" validation-for="email"></div>
                 </div>
-                <div class="dealer-info-field">
-                    <input type="text"
-                            name="postCode"
-                            id="postCode"
-                            placeholder="Postcode">
+                <div class="dealer-info-field no-spinners">
+                    <label for="appointmentDate">Afspraakdatum</label>
+                    <input name="appointmentDate"
+                           type="date"
+                           id="appointmentDate"
+                           placeholder="Afspraakdatum"
+                           required
+                           value=""/>
+                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="appointmentDate"></div>
+                    <div class="error-container" visible-when-invalid="typeMismatch" validation-for="appointmentDate"></div>
                 </div>
                 <div class="dealer-info-field">
+                    <label for="postCode">Postcode</label>
                     <input type="text"
-                            name="houseNumber"
-                            id="houseNumber"
-                            placeholder="Huisnummer">
+                           name="postCode"
+                           id="postCode"
+                           placeholder="Postcode">
                 </div>
                 <div class="dealer-info-field">
+                    <label for="houseNumber">Huisnummer</label>
                     <input type="text"
-                            name="additiveText"
-                            id="additiveText"
-                            placeholder="Toevoeging">
+                           name="houseNumber"
+                           id="houseNumber"
+                           placeholder="Huisnummer">
                 </div>
-                
+                <div class="dealer-info-field">
+                    <label for="additiveText">Toevoeging</label>
+                    <input type="text"
+                           name="additiveText"
+                           id="additiveText"
+                           placeholder="Toevoeging">
+                </div>                
                     <amp-list src="/api/carDealers" width="auto" height="38px" layout="fixed-height">
                         <template type="amp-mustache">
+                            <label for="dealerName">Dealer</label>
                             <select required id="dealerName" name="dealerName" class="select-list">
                                 <option value="">Selecteer een dealer</option>
                                 {{#dealerNames}}
                                 <option value="{{.}}">{{.}}</option>
                                 {{/dealerNames}}
-                            </select>                            
+                            </select>
                         </template>
                     </amp-list>
                 <div class="error-container" visible-when-invalid="valueMissing" validation-for="dealerName"></div>
@@ -540,7 +581,7 @@
                 </div>
                 <div submit-error class="dealer-info-field">
                     <template type="amp-mustache">
-                        An error occured while sending an appointment email.
+                        An error occured while sending an appointment email
                     </template>
                 </div>
                 <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">

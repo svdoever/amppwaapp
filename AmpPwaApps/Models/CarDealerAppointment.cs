@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace AmpPwaApps.Models
 {
@@ -15,6 +16,8 @@ namespace AmpPwaApps.Models
         //tussenvoegsel
         public string MainText { get; set; }
         //toevoeging
+        [Required(ErrorMessage = "Appointment date is required!")]
+        public DateTime AppointmentDate { get; set; }
         public string AdditiveText { get; set; }
         //email
         [Required(ErrorMessage = "Email is required!")]
