@@ -182,6 +182,10 @@
         transition: background .2s linear,box-shadow .2s linear;
     }
 
+    .car-info-section {
+        margin-bottom: 15px;
+    }
+
     .button-back span {
         background-color: white;
         border-color: #34AED8;
@@ -238,7 +242,7 @@
         font: inherit;
     }
 
-    div[submit-success] {
+    .submit-success {
         color: green;
     }
 
@@ -311,6 +315,31 @@
         display: block;
         margin-top: 5px;       
     }
+
+    .pull-right {
+        float: right;
+    }
+
+    #pricingOverview {
+        border-radius: 3px;
+        background-color: #F6F6F6;
+        padding: 20px 65px 20px 20px;
+        margin-bottom: 20px;
+        text-align: left;
+        font-family: Arial Regular,Open Sans,Arial,"sans-serif";
+        color: #545b60;
+    }
+
+    #pricingOverview .header {
+        font-weight: bold;        
+    }
+
+    #pricingOverview .content {
+        border-radius: 3px;
+        background-color: #F6F6F6;
+        text-align: left;
+       
+    }
   </style>
   </head>
   <body>
@@ -340,7 +369,7 @@
       </section>
     </header>
     <main>
-      <hr>
+        <hr>
         <section id="pricingOptions" class="show" [class]="!props.appointmentFormVisible ? 'show' : 'hide'">
             <section class="container">
                 <h1 class="title-font">Gaudi A4 Limousine</h1>
@@ -462,106 +491,108 @@
                 </div>
             </section>
             <section class="container">
-                <div class="button-orange" on="tap:AMP.setState({props: {appointmentFormVisible: true}})"  role="button" tabindex="1">
+                <div class="button-orange" on="tap:AMP.setState({props: {appointmentFormVisible: true, dealDetailsVisible: false}})" role="button" tabindex="1">
                     <span>Kies deze uitvoering</span>
                     <!--<a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=24-maanden&Mileage=10-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi"
-                       [href]="'https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=' + (selectedDuration || '24') + '-maanden&Mileage=' + ((selectedKilometrage / 1000) || 10) + '-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=' + (props[currentColour].id || props[props.defaultColour].id) + '&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi'" target="_self">
-                        Kies deze uitvoering
-                    </a>-->
+                   [href]="'https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=' + (selectedDuration || '24') + '-maanden&Mileage=' + ((selectedKilometrage / 1000) || 10) + '-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=' + (props[currentColour].id || props[props.defaultColour].id) + '&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi'" target="_self">
+                    Kies deze uitvoering
+                </a>-->
                 </div>
             </section>
-        </section>  
-        <section id="dealerAppointment" class="hide container" [class]="props.appointmentFormVisible ? 'show container' : 'hide container'">                            
-            <div class="dealer-info-field">
-                <h2>Private Lease overzicht</h2>
-                <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast!</p>
-            </div>
-            <form id="appointment-form"
-                    method="post"
-                    action-xhr="/api/carDealers/appointment"
-                    custom-validation-reporting="show-all-on-submit"
-                    target="_top">
+        </section>
+        <section id="dealerAppointment" class="hide container" [class]="props.appointmentFormVisible ? 'show container' : 'hide container'">
+            <div class="show" [class]="!props.dealDetailsVisible ? 'show' : 'hide'">
                 <div class="dealer-info-field">
-                    <p>Aanhef</p>
-                    <span>
-                        <input name="Aanhef"
-                                value="Dhr."
-                                type="radio">Dhr.
-                    </span>
-                    <span>
-                        <input name="Aanhef"
-                                value="Mevr."
-                                type="radio">Mevr.
-                    </span>
+                    <h2>Private Lease overzicht</h2>
+                    <p>Vraag vrijblijvend een proefrit of offerte aan door onderstaand formulier in te vullen. De dealer zal zo snel mogelijk contact opnemen. Geen zorgen, je zit nog nergens aan vast!</p>
                 </div>
+                <form id="appointment-form"
+                      method="post"
+                      action-xhr="/api/carDealers/appointment"
+                      custom-validation-reporting="show-all-on-submit"
+                      on="submit-success:AMP.setState({props: {dealDetailsVisible: true}})"
+                      target="_top">
+                    <div class="dealer-info-field">
+                        <p>Aanhef</p>
+                        <span>
+                            <input name="Aanhef"
+                                   value="Dhr."
+                                   type="radio">Dhr.
+                        </span>
+                        <span>
+                            <input name="Aanhef"
+                                   value="Mevr."
+                                   type="radio">Mevr.
+                        </span>
+                    </div>
 
-                <div class="dealer-info-field">
-                    <label for="firstName">Voornaam</label>
-                    <input type="text"
-                            name="firstName"
-                            id="firstName"
-                            placeholder="Voornaam"
-                            required>
-                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="firstName"></div>                    
-                </div>
-                <div class="dealer-info-field">
-                    <label for="mainText">Tussenvoegsel</label>
-                    <input type="text"
-                           name="mainText"
-                           id="mainText"
-                           placeholder="Tussenvoegsel">
-                </div>
-                <div class="dealer-info-field">
-                    <label for="lastName">Achternaam</label>
-                    <input type="text"
-                           name="lastName"
-                           id="lastName"
-                           placeholder="Achternaam"
-                           required>
-                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="lastName"></div>
-                </div>
-                <div class="dealer-info-field">
-                    <label for="email">Email</label>
-                    <input type="email"
-                           name="email"
-                           id="email"
-                           placeholder="Email"
-                           required>
-                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="email"></div>
-                    <div class="error-container" visible-when-invalid="typeMismatch" validation-for="email"></div>
-                </div>
-                <div class="dealer-info-field no-spinners">
-                    <label for="appointmentDate">Afspraakdatum</label>
-                    <input name="appointmentDate"
-                           type="date"
-                           id="appointmentDate"
-                           placeholder="Afspraakdatum"
-                           required
-                           value=""/>
-                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="appointmentDate"></div>
-                    <div class="error-container" visible-when-invalid="typeMismatch" validation-for="appointmentDate"></div>
-                </div>
-                <div class="dealer-info-field">
-                    <label for="postCode">Postcode</label>
-                    <input type="text"
-                           name="postCode"
-                           id="postCode"
-                           placeholder="Postcode">
-                </div>
-                <div class="dealer-info-field">
-                    <label for="houseNumber">Huisnummer</label>
-                    <input type="text"
-                           name="houseNumber"
-                           id="houseNumber"
-                           placeholder="Huisnummer">
-                </div>
-                <div class="dealer-info-field">
-                    <label for="additiveText">Toevoeging</label>
-                    <input type="text"
-                           name="additiveText"
-                           id="additiveText"
-                           placeholder="Toevoeging">
-                </div>                
+                    <div class="dealer-info-field">
+                        <label for="firstName">Voornaam</label>
+                        <input type="text"
+                               name="firstName"
+                               id="firstName"
+                               placeholder="Voornaam"
+                               required>
+                        <div class="error-container" visible-when-invalid="valueMissing" validation-for="firstName"></div>
+                    </div>
+                    <div class="dealer-info-field">
+                        <label for="mainText">Tussenvoegsel</label>
+                        <input type="text"
+                               name="mainText"
+                               id="mainText"
+                               placeholder="Tussenvoegsel">
+                    </div>
+                    <div class="dealer-info-field">
+                        <label for="lastName">Achternaam</label>
+                        <input type="text"
+                               name="lastName"
+                               id="lastName"
+                               placeholder="Achternaam"
+                               required>
+                        <div class="error-container" visible-when-invalid="valueMissing" validation-for="lastName"></div>
+                    </div>
+                    <div class="dealer-info-field">
+                        <label for="email">Email</label>
+                        <input type="email"
+                               name="email"
+                               id="email"
+                               placeholder="Email"
+                               required>
+                        <div class="error-container" visible-when-invalid="valueMissing" validation-for="email"></div>
+                        <div class="error-container" visible-when-invalid="typeMismatch" validation-for="email"></div>
+                    </div>
+                    <div class="dealer-info-field no-spinners">
+                        <label for="appointmentDate">Afspraakdatum</label>
+                        <input name="appointmentDate"
+                               type="date"
+                               id="appointmentDate"
+                               placeholder="Afspraakdatum"
+                               required
+                               value="" />
+                        <div class="error-container" visible-when-invalid="valueMissing" validation-for="appointmentDate"></div>
+                        <div class="error-container" visible-when-invalid="typeMismatch" validation-for="appointmentDate"></div>
+                    </div>
+                    <div class="dealer-info-field">
+                        <label for="postCode">Postcode</label>
+                        <input type="text"
+                               name="postCode"
+                               id="postCode"
+                               placeholder="Postcode">
+                    </div>
+                    <div class="dealer-info-field">
+                        <label for="houseNumber">Huisnummer</label>
+                        <input type="text"
+                               name="houseNumber"
+                               id="houseNumber"
+                               placeholder="Huisnummer">
+                    </div>
+                    <div class="dealer-info-field">
+                        <label for="additiveText">Toevoeging</label>
+                        <input type="text"
+                               name="additiveText"
+                               id="additiveText"
+                               placeholder="Toevoeging">
+                    </div>
                     <amp-list src="/api/carDealers" width="auto" height="38px" layout="fixed-height">
                         <template type="amp-mustache">
                             <label for="dealerName">Dealer</label>
@@ -573,31 +604,87 @@
                             </select>
                         </template>
                     </amp-list>
-                <div class="error-container" visible-when-invalid="valueMissing" validation-for="dealerName"></div>
-                <div submit-success class="dealer-info-field">
-                    <template type="amp-mustache">
-                        An appointment email was succesfully sent!
-                    </template>
+                    <div class="error-container" visible-when-invalid="valueMissing" validation-for="dealerName"></div>
+                    <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
+                        <span>Aanvragen via de dealer</span>
+                    </div>                   
+                    <div submit-error class="dealer-info-field">
+                        <template type="amp-mustache">
+                            An error occured while sending an appointment email
+                        </template>
+                    </div>
+                </form>
+            </div>
+            
+            <section class="hide container" [class]="props.dealDetailsVisible ? 'show container' : 'hide container'">
+                <div id="pricingOverview">
+                    <div class="dealer-info-field submit-success">
+                        An appointment was arranged!
+                    </div>
+                    <div class="car-info-section">
+                        <div class="header">
+                            <div>
+                                <p>
+                                    Auto:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>
+                                <span>Model:</span>
+                                <span>Gaudi A4 Limousine</span>
+                            </p>
+                            <p>
+                                <span>Kleur:</span>
+                                <span [text]="props[currentColour].fullColourName || props[props.defaultColour].fullColourName"
+                                      class="title-font selected-color-preview">Tangorood Metallic</span>
+                                <span class="additonal-pricing-font pull-right" [text]="'€ ' + (props[currentColour].pricePerMonth == 0 ? 0 / 100 : (props[currentColour].pricePerMonth || props[props.defaultColour].pricePerMonth)) + ' p/m'">€ 16.01 p/m</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="car-info-section">
+                        <div class="header">
+                            <div>
+                                <p>
+                                    Contract:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>
+                                <span>Looptijd:</span>
+                                <span [text]="(selectedDuration || 24) + ' Maanden'">24 Maanden</span>
+                            </p>
+                            <p>
+                                <span>Kilometers per jaar:</span>
+                                <span [text]="(selectedKilometrage || 10000) + ' km'">10000 km</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="car-info-section">
+                        <div class="header">
+                            <div>
+                                <p>
+                                    <span>Totaalbedrag:</span>
+                                    <span class="additonal-pricing-font pull-right" [text]="'€ ' + leasePriceState.totalLeasePrice + ' p/m'">€ 869.02 p/m</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div submit-error class="dealer-info-field">
-                    <template type="amp-mustache">
-                        An error occured while sending an appointment email
-                    </template>
-                </div>
-                <div on="tap:appointment-form.submit" role="button" tabindex="1" class="button-orange">
-                    <span>Aanvragen via de dealer</span>
-                </div>                
-            </form>          
+            </section>
             <div on="tap:AMP.setState({ props: { appointmentFormVisible: false }})" role="button" tabindex="2" class="button-back">
                 <span>Terug</span>
-            </div>           
+            </div>
         </section>
+        
     </main>
   </body>
   <amp-state id="props">
     <script type="application/json">
       {
         "appointmentFormVisible": false,
+        "dealDetailsVisible": false,
         "defaultColour": "tangoroodMetallic",
         "tangoroodMetallic": {
           "id": "8a0f36a1-bc79-4813-b82c-699c00fc6e82",
