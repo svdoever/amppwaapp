@@ -492,7 +492,7 @@
                 </div>
             </section>
             <section class="container">
-                <div class="button-orange" on="tap:AMP.setState({props: {appointmentFormVisible: true, dealDetailsVisible: false}})" role="button" tabindex="1">
+                <div class="button-orange" on="tap:AMP.setState({props: {appointmentFormVisible: true, dealDetailsVisible: false}}),site-logo.scrollTo('position' = 'top')" role="button" tabindex="1">
                     <span>Kies deze uitvoering</span>
                     <!--<a href="https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=24-maanden&Mileage=10-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=8a0f36a1-bc79-4813-b82c-699c00fc6e82&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi"
        [href]="'https://www.autoabonnement.nl/private-lease/Audi/A5-sportback/Special/overzicht?Duration=' + leasePriceState.selectedDuration + '-maanden&Mileage=' + (leasePriceState.selectedKilometrage / 1000) + '-000-km&SelectedOptions=winterbanden&SelectedInsurances=all-risk,schadeverzekering-inzittenden&SelectedPolicyExcessOption=-250-20&SelectedColour=' + (props[props.currentColour].id || props[props.defaultColour].id) + '&FuelType=benzine&TransmissionType=handgeschakeld&SelectedBrand=Audi'" target="_self">
