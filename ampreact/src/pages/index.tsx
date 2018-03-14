@@ -1,39 +1,39 @@
-import * as React from 'react';
-import Head from 'next/head';
-import { Amp } from 'react-amphtml';
-import styled from 'styled-components';
-import Container from '../components/Container';
-import ImageWithHeading from '../components/ImageWithHeading';
+import * as React from "react";
+import Head from "next/head";
+import { Amp } from "react-amphtml";
+import styled from "styled-components";
+import Container from "../components/Container";
+import ImageWithHeading from "../components/ImageWithHeading";
 
-declare module 'react' {
+declare module "react" {
   interface HTMLAttributes<T> {
-     expanded? : any;
+     expanded?: any;
   }
 }
 
 const StyledAmpImg = styled(Amp.Img)`
   filter: ${(props: any) => {
-    switch (props['data-filter']) {
+    switch (props["data-filter"]) {
       case 1:
-        return 'blur(10px)';
+        return "blur(10px)";
       case 2:
-        return 'hue-rotate(180deg)';
+        return "hue-rotate(180deg)";
       case 3:
-        return 'invert(100%)';
+        return "invert(100%)";
       case 4:
-        return 'grayscale(100%)';
+        return "grayscale(100%)";
       case 5:
-        return 'sepia(100%)';
+        return "sepia(100%)";
       case 6:
-        return 'saturate(100%)';
+        return "saturate(100%)";
       default:
-        return 'none';
+        return "none";
     }
   }};
 `;
  
 const defaultHeading = {
-  text: 'Hello, World!',
+  text: "Hello, World!",
 };
 
 export default () => (
@@ -54,7 +54,7 @@ export default () => (
         <Amp.State id="headingInput">{defaultHeading}</Amp.State>
         <Amp.Action
           events={{
-            change: ['AMP.setState({ headingInput: { text: event.value } })'],
+            change: ["AMP.setState({ headingInput: { text: event.value } })"],
           }}
         >
           <input type="text" id="headingInputElement" />
@@ -62,7 +62,7 @@ export default () => (
       </label>
       <Amp.Action
         events={{
-          tap: ['AMP.setState({ heading: { text: headingInput.text } })'],
+          tap: ["AMP.setState({ heading: { text: headingInput.text } })"],
         }}
       >
         <button>Set Heading</button>
@@ -72,7 +72,7 @@ export default () => (
     <p>
       <Amp.Action
         events={{
-          tap: ['awesome-carousel.toggleVisibility'],
+          tap: ["awesome-carousel.toggleVisibility"],
         }}
       >
         <button>Toggle Carousel Visibility</button>
@@ -118,7 +118,7 @@ export default () => (
         </figure>
       </section>
     </Amp.Accordion>
-    <ImageWithHeading src='/static/img/amp.jpg' width={200} height={100} alt='Beautiful Image of a rectangle' heading='Views from Space'/>
-  </Container> 
+    <ImageWithHeading src="/static/img/amp.jpg" width={200} height={100} alt="Beautiful Image of a rectangle" heading="Views from Space"/>
+  </Container>
 
 );

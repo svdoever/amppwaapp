@@ -1,5 +1,6 @@
 // tslint:disable:max-line-length
 // tslint:disable:trailing-comma
+// tslint:disable:object-literal-key-quotes
 
 import * as React from "react";
 import Head from "next/head";
@@ -13,6 +14,56 @@ declare module "react" {
         hreflang?: string;
     }
 }
+
+class productColorState {
+    basePrice: number;
+    finalPrice: number;
+    defaultColor: string;
+}
+const GaudiA64ProductColorState: any = {
+    "basePrice": 595,
+    "finalPrice": 595,
+    "defaultColour": "tangoroodMetallic",
+    "tangoroodMetallic": {
+      "id": "8a0f36a1-bc79-4813-b82c-699c00fc6e82",
+      "fullColourName": "Tangorood Metallic",
+      "colourClassName": "tangorood-metallic",
+      "pricePerMonth": 16.01,
+      "images": [
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-1.jpg",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-2.png",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/audi-a5-sb-tangorood-3.png",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-1.jpg",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/tangorood-metallic/a5-interieur-2.jpg"
+      ]
+    },
+    "briljantzwart": {
+      "id": "b944e7af-774b-47ed-9349-ec3116a8c417",
+      "fullColourName": "Briljantzwart",
+      "colourClassName": "briljantzwart",
+      "pricePerMonth": 0.00,
+      "images": [
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/audi-a5-sb-briljantzwart-1.png",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/audi-a5-sb-briljantzwart-2.png",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/audi-a5-sb-briljantzwart-3.png",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/a5-interieur-1.jpg",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/briljantzwart/a5-interieur-2.jpg"
+      ]
+    },
+    "scubablauwMetallic": {
+      "id": "e1ea1301-331e-4a0b-9e56-058a60901c5c",
+      "fullColourName": "Scubablauw Metallic",
+      "colourClassName": "scubablauw-metallic",
+      "pricePerMonth": 16.01,
+      "images": [
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/audi-a5-sb-scubablauw-metallic-1.png",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/audi-a5-sb-scubablauw-metallic-2.png",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/audi-a5-sb-scubablauw-metallic-3.png",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/a5-interieur-1.jpg",
+        "https://www.autoabonnement.nl/-/media/images/autoabonnement/shop/car-colours/audi/a5/a5-sportback/scubablauw-metallic/a5-interieur-2.jpg"
+      ]
+    }
+  };
 
 export default () => (
     <div>
@@ -53,6 +104,6 @@ export default () => (
             <link rel="alternate" hreflang="nl-nl" href="https://amppwaapps.azurewebsites.net/amp/amp_audi-a64.html" />
         </Head>
         <h1>HELLO LITTLE  WORLD!!!</h1>
-        <CarConfigurator/>
+        <CarConfigurator productColorState={}/>
     </div>
 );

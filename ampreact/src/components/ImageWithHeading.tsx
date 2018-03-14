@@ -51,7 +51,7 @@ const ImageWithHeading = ({src, width, height, alt = "", heading = ""}: {src: st
             </figcaption>
         </figure>
         <Amp.Accordion>
-            <section expanded="true">
+            <section expanded>
                 <h4>Section 1</h4>
                 <Button>I'm a magic button!</Button>
             </section>

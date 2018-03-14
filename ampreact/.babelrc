@@ -1,7 +1,15 @@
 {
   "presets": [
-    "next/babel",
-    "stage-0"
+    "react",
+    "stage-0",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": "last 2 Chrome versions"
+        }
+      }
+    ]
   ],
   "plugins": [
     [
@@ -11,6 +19,7 @@
         "displayName": true,
         "preprocess": false
       }
-    ]
+    ],
+    "syntax-object-rest-spread"
   ]
 }

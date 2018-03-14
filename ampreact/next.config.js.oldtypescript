@@ -9,19 +9,22 @@ module.exports = {
           {
             test: /\.(ts|tsx)$/,
             include: [
-                path.resolve(__dirname, './components'),
-                path.resolve(__dirname, './pages'),
-                path.resolve(__dirname, './stories'),
+                path.resolve(__dirname, './src/components'),
+                path.resolve(__dirname, './src/pages'),
             ],
-            loader: require.resolve('ts-loader')
+            use: { 
+              loader: 'ts-loader'
+            }
           }, {
             test: /\.(jpe?g|gif|png|svg)$/, 
-            loader: "file-loader"
+            use: {
+              loader: "file-loader"
+            }
           }
         ]
       },
       resolve: {
-        extensions: ['.ts', '.tsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
       }
     });
 
