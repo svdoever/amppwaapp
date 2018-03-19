@@ -66,7 +66,13 @@ namespace AmpPwaApps
                 //config.AddScriptWithoutTransform("~/Scripts/bundle.server.js");
             });
 
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod());
+            app.UseCors(options => options.WithOrigins(new[] {
+                "https://amppwaapps.azurewebsites.net",
+                "https://amppwaapps-azurewebsites-net.cdn.ampproject.org",
+                "https://amppwaapps.azurewebsites.net.amp.cloudflare.com",
+                "https://cdn.ampproject.org"
+            }).AllowAnyMethod()
+            .AllowCredentials());
 
             app.UseStaticFiles();
             app.UseMvc((Action<IRouteBuilder>)(routes =>
