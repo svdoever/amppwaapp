@@ -562,17 +562,6 @@
                         <div class="error-container" visible-when-invalid="valueMissing" validation-for="email"></div>
                         <div class="error-container" visible-when-invalid="typeMismatch" validation-for="email"></div>
                     </div>
-                    <div class="dealer-info-field no-spinners">
-                        <label for="appointmentDate">Afspraakdatum</label>
-                        <input name="appointmentDate"
-                               type="date"
-                               id="appointmentDate"
-                               placeholder="Afspraakdatum"
-                               required
-                               value="" />
-                        <div class="error-container" visible-when-invalid="valueMissing" validation-for="appointmentDate"></div>
-                        <div class="error-container" visible-when-invalid="typeMismatch" validation-for="appointmentDate"></div>
-                    </div>
                     <div class="dealer-info-field">
                         <label for="postCode">Postcode</label>
                         <input type="text"
@@ -594,6 +583,18 @@
                                id="additiveText"
                                placeholder="Toevoeging">
                     </div>
+                    <div class="dealer-info-field no-spinners">
+                        <label for="appointmentDate">Afspraakdatum</label>
+                        <input name="appointmentDate"
+                               type="date"
+                               id="appointmentDate"
+                               placeholder="Afspraakdatum"
+                               required
+                               value="" />
+                        <div class="error-container" visible-when-invalid="valueMissing" validation-for="appointmentDate"></div>
+                        <div class="error-container" visible-when-invalid="typeMismatch" validation-for="appointmentDate"></div>
+                    </div>
+
                     <amp-list src="https://amppwaapps.azurewebsites.net/api/carDealers" width="auto" height="38px" layout="fixed-height">
                         <template type="amp-mustache">
                             <label for="dealerName">Dealer</label>

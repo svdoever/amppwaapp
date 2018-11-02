@@ -7,7 +7,13 @@ namespace AmpPwaApps
     {
         public static void Main(string[] args)
         {
-            new WebHostBuilder().UseKestrel().UseContentRoot(Directory.GetCurrentDirectory()).UseIISIntegration().UseStartup<Startup>().UseApplicationInsights().Build().Run();
+            new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .UseApplicationInsights()
+                .Build().Run();
         }
     }
 }

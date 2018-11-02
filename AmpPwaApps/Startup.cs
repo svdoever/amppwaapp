@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using React.AspNet;
 
 namespace AmpPwaApps
 {
@@ -25,7 +24,6 @@ namespace AmpPwaApps
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddReact();
             services.AddMvc();
             services.AddCors();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -36,43 +34,28 @@ namespace AmpPwaApps
         {
             loggerFactory.AddConsole((IConfiguration)this.Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
-
-            // Initialise ReactJS.NET. Must be before static files.
-            app.UseReact(config =>
-            {
-                // If you want to use server-side rendering of React components,
-                // add all the necessary JavaScript files here. This includes
-                // your components as well as all of their dependencies.
-                // See http://reactjs.net/ for more information. Example:
-                //config
-                //  .AddScript("~/Scripts/First.jsx")
-                //  .AddScript("~/Scripts/Second.jsx");
-                config.AddScript("/js/tutorial.jsx");
-                // If you use an external build too (for example, Babel, Webpack,
-                // Browserify or Gulp), you can improve performance by disabling
-                // ReactJS.NET's version of Babel and loading the pre-transpiled
-                // scripts. Example:
-                //config
-                //config.SetLoadBabel(false);
-                //config.AddScriptWithoutTransform("~/Scripts/bundle.server.js");
-            });
 
             app.UseCors(options => options.WithOrigins(new[] {
                 "https://amppwaapps.azurewebsites.net",
                 "https://amppwaapps-azurewebsites-net.cdn.ampproject.org",
                 "https://amppwaapps.azurewebsites.net.amp.cloudflare.com",
-                "https://cdn.ampproject.org"
+                "https://cdn.ampproject.org",
+                "http://localhost",
+                "https://localhost"
             }).AllowAnyMethod()
             .AllowCredentials());
+
+            app.UseHttpsRedirection();
 
             app.UseStaticFiles();
             app.UseMvc((Action<IRouteBuilder>)(routes =>
